@@ -113,6 +113,32 @@ library versions. Timings depend on the Colab hardware.
 - `AssertionError: Not found in /content`: the data is not in `/content`, or has
   not been unzipped. Run `cell0_unzip_data.py`.
 
+## Tests and documentation
+
+Automated tests (pytest) check the data binning, gap filling, target alignment,
+the no-future-information rule, the chronological split, the baselines and the
+Random Forest tuning, using a small made-up dataset (no real data needed).
+
+```python
+!python -m pytest -v
+```
+
+All 25 tests pass. The saved test report is
+[`reports/test_report.html`](reports/test_report.html); download it and open it in
+a browser to view it.
+
+The reusable code behind the scripts is in `src/occupancy/` (`data.py`,
+`features.py`, `models.py`), with docstrings on every function. The generated HTML
+documentation is in `docs/`; download the folder and open `docs/index.html` in a
+browser, or regenerate it with:
+
+```python
+!PYTHONPATH=src pdoc --docformat numpy -o docs occupancy occupancy.data occupancy.features occupancy.models
+```
+
+The `cell0` to `cell7` scripts are the original notebook workflow that produced the
+results below. `src/occupancy/` is the same logic written as documented, tested functions.
+
 ## Method
 
 - **Preparation:** the event log is aggregated to 15-minute bins per room
@@ -181,18 +207,17 @@ src/
     cell5_error_sensitivity.py    error analysis and feature-removal sensitivity
     cell6_exploration.py          exploratory plots
     cell7_horizon_label_runtime.py  horizon, label and runtime experiments
+    occupancy/                    documented, tested functions (data, features, models)
+tests/                          pytest tests
+docs/                           HTML documentation generated with pdoc
 reports/
     results_summary.md            saved numbers from the runs
+    test_report.html              pytest test report
+pytest.ini                      pytest settings
 requirements.txt
 LICENSE                           MIT
 ai_use_log.md                     AI use disclosure
 ```
-
-<!-- Switch these on once they exist:
-tests/                  pytest tests
-reports/test_report.html  pytest test report
-docs/                   HTML documentation generated with pdoc
--->
 
 ## AI use
 
