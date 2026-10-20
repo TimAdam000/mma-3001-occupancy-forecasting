@@ -173,6 +173,41 @@ Runtime and model size (validation set; timings vary on shared Colab hardware):
 
 Binned occupancy table in memory: 55.2 MB (274,014 rows), compared with a raw event log of 9,091,732 rows (about 1.6 GB on disk).
 
+## Cell 8: Repeatability, profiling and cost estimate
+
+Tuned Random Forest (100 trees, depth 20, leaf 50) refitted with 5 seeds:
+
+| Seed | Validation F1 | Test F1 |
+|---|---|---|
+| 0 | 0.7627 | 0.7257 |
+| 1 | 0.7634 | 0.7257 |
+| 2 | 0.7627 | 0.7253 |
+| 3 | 0.7626 | 0.7252 |
+| 4 | 0.7629 | 0.7259 |
+
+Test F1 mean 0.7255, std 0.0003, min 0.7252, max 0.7259. Persistence test F1 is 0.6906
+(no randomness), so the smallest gain over persistence across seeds is +0.0346. The
+headline 0.727 is the seed-42 run.
+
+cProfile, single thread:
+
+| Step | Total time | Note |
+|---|---|---|
+| Random Forest fit (100 trees) | 9.74 s | 8.49 s (about 87%) inside the 100 tree-building (`_fit`) calls |
+| Random Forest predict (51,935 validation rows) | 0.39 s | about 7.5 microseconds per row |
+
+Rough operation-count estimates (orders of magnitude, not exact FLOPs):
+
+| Item | Estimate |
+|---|---|
+| Random Forest fit | about 8.1e8 basic operations (n = 155,801, p = 10, 100 trees, 3 features per split) |
+| Random Forest predict | about 2,000 comparisons per row (100 trees x depth 20, worst case) |
+| Logistic regression fit | about 3.1e8 multiply-adds (assuming about 100 iterations) |
+
+Operation count does not predict runtime here: logistic regression has fewer operations
+than the forest but is about 30 times faster to fit, because vectorised matrix arithmetic
+runs much faster per operation than branching tree code.
+
 ## Caveats to state in the report
 
 - Results apply to these rooms in this building; the test period is one later block of time.
