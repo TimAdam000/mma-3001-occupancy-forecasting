@@ -89,6 +89,7 @@ plus pytest, pytest-html and pdoc for testing and documentation.
    %run -i src/cell5_error_sensitivity.py     # error analysis, feature-removal sensitivity
    %run -i src/cell6_exploration.py           # exploratory plots
    %run -i src/cell7_horizon_label_runtime.py # horizon, label definition, runtime
+   %run -i src/cell8_profile_repeatability.py # seed repeatability, profiler, cost estimate
 ```
 
 The full notebook is `notebooks/occupancy_forecasting.ipynb`. Cell 1 takes a few
@@ -207,6 +208,7 @@ src/
     cell5_error_sensitivity.py    error analysis and feature-removal sensitivity
     cell6_exploration.py          exploratory plots
     cell7_horizon_label_runtime.py  horizon, label and runtime experiments
+    cell8_profile_repeatability.py  repeatability, profiling and cost estimate
     occupancy/                    documented, tested functions (data, features, models)
 tests/                          pytest tests
 docs/                           HTML documentation generated with pdoc
