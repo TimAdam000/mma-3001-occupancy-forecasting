@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="pdoc 16.0.0"/>
+    <title>occupancy API documentation</title>
+
+    <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
+    <style>/*! syntax-highlighting.css */pre{line-height:125%;}span.linenos{color:inherit; background-color:transparent; padding-left:5px; padding-right:20px;}.pdoc-code .hll{background-color:#ffffcc}.pdoc-code{background:#f8f8f8;}.pdoc-code .c{color:#3D7B7B; font-style:italic}.pdoc-code .err{border:1px solid #FF0000}.pdoc-code .k{color:#008000; font-weight:bold}.pdoc-code .o{color:#666666}.pdoc-code .ch{color:#3D7B7B; font-style:italic}.pdoc-code .cm{color:#3D7B7B; font-style:italic}.pdoc-code .cp{color:#9C6500}.pdoc-code .cpf{color:#3D7B7B; font-style:italic}.pdoc-code .c1{color:#3D7B7B; font-style:italic}.pdoc-code .cs{color:#3D7B7B; font-style:italic}.pdoc-code .gd{color:#A00000}.pdoc-code .ge{font-style:italic}.pdoc-code .gr{color:#E40000}.pdoc-code .gh{color:#000080; font-weight:bold}.pdoc-code .gi{color:#008400}.pdoc-code .go{color:#717171}.pdoc-code .gp{color:#000080; font-weight:bold}.pdoc-code .gs{font-weight:bold}.pdoc-code .gu{color:#800080; font-weight:bold}.pdoc-code .gt{color:#0044DD}.pdoc-code .kc{color:#008000; font-weight:bold}.pdoc-code .kd{color:#008000; font-weight:bold}.pdoc-code .kn{color:#008000; font-weight:bold}.pdoc-code .kp{color:#008000}.pdoc-code .kr{color:#008000; font-weight:bold}.pdoc-code .kt{color:#B00040}.pdoc-code .m{color:#666666}.pdoc-code .s{color:#BA2121}.pdoc-code .na{color:#687822}.pdoc-code .nb{color:#008000}.pdoc-code .nc{color:#0000FF; font-weight:bold}.pdoc-code .no{color:#880000}.pdoc-code .nd{color:#AA22FF}.pdoc-code .ni{color:#717171; font-weight:bold}.pdoc-code .ne{color:#CB3F38; font-weight:bold}.pdoc-code .nf{color:#0000FF}.pdoc-code .nl{color:#767600}.pdoc-code .nn{color:#0000FF; font-weight:bold}.pdoc-code .nt{color:#008000; font-weight:bold}.pdoc-code .nv{color:#19177C}.pdoc-code .ow{color:#AA22FF; font-weight:bold}.pdoc-code .w{color:#bbbbbb}.pdoc-code .mb{color:#666666}.pdoc-code .mf{color:#666666}.pdoc-code .mh{color:#666666}.pdoc-code .mi{color:#666666}.pdoc-code .mo{color:#666666}.pdoc-code .sa{color:#BA2121}.pdoc-code .sb{color:#BA2121}.pdoc-code .sc{color:#BA2121}.pdoc-code .dl{color:#BA2121}.pdoc-code .sd{color:#BA2121; font-style:italic}.pdoc-code .s2{color:#BA2121}.pdoc-code .se{color:#AA5D1F; font-weight:bold}.pdoc-code .sh{color:#BA2121}.pdoc-code .si{color:#A45A77; font-weight:bold}.pdoc-code .sx{color:#008000}.pdoc-code .sr{color:#A45A77}.pdoc-code .s1{color:#BA2121}.pdoc-code .ss{color:#19177C}.pdoc-code .bp{color:#008000}.pdoc-code .fm{color:#0000FF}.pdoc-code .vc{color:#19177C}.pdoc-code .vg{color:#19177C}.pdoc-code .vi{color:#19177C}.pdoc-code .vm{color:#19177C}.pdoc-code .il{color:#666666}</style>
+    <style>/*! theme.css */:root{--pdoc-background:#fff;}.pdoc{--text:#212529;--muted:#6c757d;--link:#3660a5;--link-hover:#1659c5;--code:#f8f8f8;--active:#fff598;--accent:#eee;--accent2:#c1c1c1;--nav-hover:rgba(255, 255, 255, 0.5);--name:#0066BB;--def:#008800;--annotation:#007020;}</style>
+    <style>/*! layout.css */html, body{width:100%;height:100%;}html, main{scroll-behavior:smooth;}body{background-color:var(--pdoc-background);}@media (max-width:769px){#navtoggle{cursor:pointer;position:absolute;width:50px;height:40px;top:1rem;right:1rem;border-color:var(--text);color:var(--text);display:flex;opacity:0.8;z-index:999;}#navtoggle:hover{opacity:1;}#togglestate + div{display:none;}#togglestate:checked + div{display:inherit;}main, header{padding:2rem 3vw;}header + main{margin-top:-3rem;}.git-button{display:none !important;}nav input[type="search"]{max-width:77%;}nav input[type="search"]:first-child{margin-top:-6px;}nav input[type="search"]:valid ~ *{display:none !important;}}@media (min-width:770px){:root{--sidebar-width:clamp(12.5rem, 28vw, 22rem);}nav{position:fixed;overflow:auto;height:100vh;width:var(--sidebar-width);}main, header{padding:3rem 2rem 3rem calc(var(--sidebar-width) + 3rem);width:calc(54rem + var(--sidebar-width));max-width:100%;}header + main{margin-top:-4rem;}#navtoggle{display:none;}}#togglestate{position:absolute;height:0;opacity:0;}nav.pdoc{--pad:clamp(0.5rem, 2vw, 1.75rem);--indent:1.5rem;background-color:var(--accent);border-right:1px solid var(--accent2);box-shadow:0 0 20px rgba(50, 50, 50, .2) inset;padding:0 0 0 var(--pad);overflow-wrap:anywhere;scrollbar-width:thin; scrollbar-color:var(--accent2) transparent; z-index:1}nav.pdoc::-webkit-scrollbar{width:.4rem; }nav.pdoc::-webkit-scrollbar-thumb{background-color:var(--accent2); }nav.pdoc > div{padding:var(--pad) 0;}nav.pdoc .module-list-button{display:inline-flex;align-items:center;color:var(--text);border-color:var(--muted);margin-bottom:1rem;}nav.pdoc .module-list-button:hover{border-color:var(--text);}nav.pdoc input[type=search]{display:block;outline-offset:0;width:calc(100% - var(--pad));}nav.pdoc .logo{max-width:calc(100% - var(--pad));max-height:35vh;display:block;margin:0 auto 1rem;transform:translate(calc(-.5 * var(--pad)), 0);}nav.pdoc ul{list-style:none;padding-left:0;}nav.pdoc > div > ul{margin-left:calc(0px - var(--pad));}nav.pdoc li a{padding:.2rem 0 .2rem calc(var(--pad) + var(--indent));}nav.pdoc > div > ul > li > a{padding-left:var(--pad);}nav.pdoc li{transition:all 100ms;}nav.pdoc li:hover{background-color:var(--nav-hover);}nav.pdoc a, nav.pdoc a:hover{color:var(--text);}nav.pdoc a{display:block;}nav.pdoc > h2:first-of-type{margin-top:1.5rem;}nav.pdoc .class:before{content:"class ";color:var(--muted);}nav.pdoc .function:after{content:"()";color:var(--muted);}nav.pdoc footer:before{content:"";display:block;width:calc(100% - var(--pad));border-top:solid var(--accent2) 1px;margin-top:1.5rem;padding-top:.5rem;}nav.pdoc footer{font-size:small;}</style>
+    <style>/*! content.css */.pdoc{color:var(--text);box-sizing:border-box;line-height:1.5;background:none;}.pdoc .pdoc-button{cursor:pointer;display:inline-block;border:solid black 1px;border-radius:2px;font-size:.75rem;padding:calc(0.5em - 1px) 1em;transition:100ms all;}.pdoc .alert{padding:1rem 1rem 1rem calc(1.5rem + 24px);border:1px solid transparent;border-radius:.25rem;background-repeat:no-repeat;background-position:.75rem center;margin-bottom:1rem;}.pdoc .alert > em{display:none;}.pdoc .alert > *:last-child{margin-bottom:0;}.pdoc .alert.note{color:#084298;background-color:#cfe2ff;border-color:#b6d4fe;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23084298%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%2016A8%208%200%201%200%208%200a8%208%200%200%200%200%2016zm.93-9.412-1%204.705c-.07.34.029.533.304.533.194%200%20.487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703%200-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381%202.29-.287zM8%205.5a1%201%200%201%201%200-2%201%201%200%200%201%200%202z%22/%3E%3C/svg%3E");}.pdoc .alert.tip{color:#0a3622;background-color:#d1e7dd;border-color:#a3cfbb;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%230a3622%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2%206a6%206%200%201%201%2010.174%204.31c-.203.196-.359.4-.453.619l-.762%201.769A.5.5%200%200%201%2010.5%2013a.5.5%200%200%201%200%201%20.5.5%200%200%201%200%201l-.224.447a1%201%200%200%201-.894.553H6.618a1%201%200%200%201-.894-.553L5.5%2015a.5.5%200%200%201%200-1%20.5.5%200%200%201%200-1%20.5.5%200%200%201-.46-.302l-.761-1.77a2%202%200%200%200-.453-.618A5.98%205.98%200%200%201%202%206m6-5a5%205%200%200%200-3.479%208.592c.263.254.514.564.676.941L5.83%2012h4.342l.632-1.467c.162-.377.413-.687.676-.941A5%205%200%200%200%208%201%22/%3E%3C/svg%3E");}.pdoc .alert.important{color:#055160;background-color:#cff4fc;border-color:#9eeaf9;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23055160%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2%200a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V2a2%202%200%200%200-2-2zm6%204c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%204.995A.905.905%200%200%201%208%204m.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E");}.pdoc .alert.warning{color:#664d03;background-color:#fff3cd;border-color:#ffecb5;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23664d03%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8.982%201.566a1.13%201.13%200%200%200-1.96%200L.165%2013.233c-.457.778.091%201.767.98%201.767h13.713c.889%200%201.438-.99.98-1.767L8.982%201.566zM8%205c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%205.995A.905.905%200%200%201%208%205zm.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2z%22/%3E%3C/svg%3E");}.pdoc .alert.caution{color:#842029;background-color:#f8d7da;border-color:#f5c2c7;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23842029%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M11.46.146A.5.5%200%200%200%2011.107%200H4.893a.5.5%200%200%200-.353.146L.146%204.54A.5.5%200%200%200%200%204.893v6.214a.5.5%200%200%200%20.146.353l4.394%204.394a.5.5%200%200%200%20.353.146h6.214a.5.5%200%200%200%20.353-.146l4.394-4.394a.5.5%200%200%200%20.146-.353V4.893a.5.5%200%200%200-.146-.353zM8%204c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%204.995A.905.905%200%200%201%208%204m.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E");}.pdoc .alert.danger{color:#842029;background-color:#f8d7da;border-color:#f5c2c7;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23842029%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5.52.359A.5.5%200%200%201%206%200h4a.5.5%200%200%201%20.474.658L8.694%206H12.5a.5.5%200%200%201%20.395.807l-7%209a.5.5%200%200%201-.873-.454L6.823%209.5H3.5a.5.5%200%200%201-.48-.641l2.5-8.5z%22/%3E%3C/svg%3E");}.pdoc .visually-hidden{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0, 0, 0, 0) !important;white-space:nowrap !important;border:0 !important;}.pdoc h1, .pdoc h2, .pdoc h3{font-weight:300;margin:.3em 0;padding:.2em 0;}.pdoc > section:not(.module-info) h1{font-size:1.5rem;font-weight:500;}.pdoc > section:not(.module-info) h2{font-size:1.4rem;font-weight:500;}.pdoc > section:not(.module-info) h3{font-size:1.3rem;font-weight:500;}.pdoc > section:not(.module-info) h4{font-size:1.2rem;}.pdoc > section:not(.module-info) h5{font-size:1.1rem;}.pdoc a{text-decoration:none;color:var(--link);}.pdoc a:hover{color:var(--link-hover);}.pdoc blockquote{margin-left:2rem;}.pdoc pre{border-top:1px solid var(--accent2);border-bottom:1px solid var(--accent2);margin-top:0;margin-bottom:1em;padding:.5rem 0 .5rem .5rem;overflow-x:auto;background-color:var(--code);}.pdoc code{color:var(--text);padding:.2em .4em;margin:0;font-size:85%;background-color:var(--accent);border-radius:6px;}.pdoc a > code{color:inherit;}.pdoc pre > code{display:inline-block;font-size:inherit;background:none;border:none;padding:0;}.pdoc > section:not(.module-info){margin-bottom:1.5rem;}.pdoc .modulename{margin-top:0;font-weight:bold;}.pdoc .modulename a{color:var(--link);transition:100ms all;}.pdoc .git-button{float:right;border:solid var(--link) 1px;}.pdoc .git-button:hover{background-color:var(--link);color:var(--pdoc-background);}.view-source-toggle-state,.view-source-toggle-state ~ .pdoc-code{display:none;}.view-source-toggle-state:checked ~ .pdoc-code{display:block;}.view-source-button{display:inline-block;float:right;font-size:.75rem;line-height:1.5rem;color:var(--muted);padding:0 .4rem 0 1.3rem;cursor:pointer;text-indent:-2px;}.view-source-button > span{visibility:hidden;}.module-info .view-source-button{float:none;display:flex;justify-content:flex-end;margin:-1.2rem .4rem -.2rem 0;}.view-source-button::before{position:absolute;content:"View Source";display:list-item;list-style-type:disclosure-closed;}.view-source-toggle-state:checked ~ .attr .view-source-button::before,.view-source-toggle-state:checked ~ .view-source-button::before{list-style-type:disclosure-open;}.pdoc .docstring{margin-bottom:1.5rem;}.pdoc section:not(.module-info) .docstring{margin-left:clamp(0rem, 5vw - 2rem, 1rem);}.pdoc .docstring .pdoc-code{margin-left:1em;margin-right:1em;}.pdoc h1:target,.pdoc h2:target,.pdoc h3:target,.pdoc h4:target,.pdoc h5:target,.pdoc h6:target,.pdoc .pdoc-code > pre > span:target{background-color:var(--active);box-shadow:-1rem 0 0 0 var(--active);}.pdoc .pdoc-code > pre > span:target{display:block;}.pdoc div:target > .attr,.pdoc section:target > .attr,.pdoc dd:target > a{background-color:var(--active);}.pdoc *{scroll-margin:2rem;}.pdoc .pdoc-code .linenos{user-select:none;}.pdoc .attr:hover{filter:contrast(0.95);}.pdoc section, .pdoc .classattr{position:relative;}.pdoc .headerlink{--width:clamp(1rem, 3vw, 2rem);position:absolute;top:0;left:calc(0rem - var(--width));transition:all 100ms ease-in-out;opacity:0;}.pdoc .headerlink::before{content:"#";display:block;text-align:center;width:var(--width);height:2.3rem;line-height:2.3rem;font-size:1.5rem;}.pdoc .attr:hover ~ .headerlink,.pdoc *:target > .headerlink,.pdoc .headerlink:hover{opacity:1;}.pdoc .attr{display:block;margin:.5rem 0 .5rem;padding:.4rem .4rem .4rem 1rem;background-color:var(--accent);overflow-x:auto;}.pdoc .classattr{margin-left:2rem;}.pdoc .decorator-deprecated{color:#842029;}.pdoc .decorator-deprecated ~ span{filter:grayscale(1) opacity(0.8);}.pdoc .name{color:var(--name);font-weight:bold;}.pdoc .def{color:var(--def);font-weight:bold;}.pdoc .signature{background-color:transparent;}.pdoc .param, .pdoc .return-annotation{white-space:pre;}.pdoc .signature.multiline .param{display:block;}.pdoc .signature.condensed .param{display:inline-block;}.pdoc .annotation{color:var(--annotation);}.pdoc .view-value-toggle-state,.pdoc .view-value-toggle-state ~ .default_value{display:none;}.pdoc .view-value-toggle-state:checked ~ .default_value{display:inherit;}.pdoc .view-value-button{font-size:.5rem;vertical-align:middle;border-style:dashed;margin-top:-0.1rem;}.pdoc .view-value-button:hover{background:white;}.pdoc .view-value-button::before{content:"show";text-align:center;width:2.2em;display:inline-block;}.pdoc .view-value-toggle-state:checked ~ .view-value-button::before{content:"hide";}.pdoc .inherited{margin-left:2rem;}.pdoc .inherited dt{font-weight:700;}.pdoc .inherited dt, .pdoc .inherited dd{display:inline;margin-left:0;margin-bottom:.5rem;}.pdoc .inherited dd:not(:last-child):after{content:", ";}.pdoc .inherited .class:before{content:"class ";}.pdoc .inherited .function a:after{content:"()";}.pdoc .search-result .docstring{overflow:auto;max-height:25vh;}.pdoc .search-result.focused > .attr{background-color:var(--active);}.pdoc .attribution{margin-top:2rem;display:block;opacity:0.5;transition:all 200ms;filter:grayscale(100%);}.pdoc .attribution:hover{opacity:1;filter:grayscale(0%);}.pdoc .attribution img{margin-left:5px;height:27px;vertical-align:bottom;width:50px;transition:all 200ms;}.pdoc table{display:block;width:max-content;max-width:100%;overflow:auto;margin-bottom:1rem;}.pdoc table th{font-weight:600;}.pdoc table th, .pdoc table td{padding:6px 13px;border:1px solid var(--accent2);}</style>
+    <style>/*! custom.css */</style></head>
+<body>
+    <nav class="pdoc">
+        <label id="navtoggle" for="togglestate" class="pdoc-button"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke-linecap='round' stroke="currentColor" stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg></label>
+        <input id="togglestate" type="checkbox" aria-hidden="true" tabindex="-1">
+        <div>
+
+            <input type="search" placeholder="Search..." role="searchbox" aria-label="search"
+                   pattern=".+" required>
+
+
+
+            <h2>API Documentation</h2>
+                <ul class="memberlist">
+            <li>
+                    <a class="variable" href="#STATUS_CODE">STATUS_CODE</a>
+            </li>
+            <li>
+                    <a class="function" href="#aggregate_chunk">aggregate_chunk</a>
+            </li>
+            <li>
+                    <a class="function" href="#combine_chunks">combine_chunks</a>
+            </li>
+            <li>
+                    <a class="function" href="#fill_time_grid">fill_time_grid</a>
+            </li>
+            <li>
+                    <a class="function" href="#load_occupancy">load_occupancy</a>
+            </li>
+            <li>
+                    <a class="function" href="#load_space_lookup">load_space_lookup</a>
+            </li>
+            <li>
+                    <a class="function" href="#parse_env_json">parse_env_json</a>
+            </li>
+            <li>
+                    <a class="variable" href="#FEATURES">FEATURES</a>
+            </li>
+            <li>
+                    <a class="function" href="#build_dataset">build_dataset</a>
+            </li>
+            <li>
+                    <a class="function" href="#chronological_split">chronological_split</a>
+            </li>
+            <li>
+                    <a class="function" href="#make_features">make_features</a>
+            </li>
+            <li>
+                    <a class="function" href="#hour_of_week_table">hour_of_week_table</a>
+            </li>
+            <li>
+                    <a class="function" href="#majority_baseline">majority_baseline</a>
+            </li>
+            <li>
+                    <a class="function" href="#persistence_baseline">persistence_baseline</a>
+            </li>
+            <li>
+                    <a class="function" href="#predict_hour_of_week">predict_hour_of_week</a>
+            </li>
+            <li>
+                    <a class="function" href="#scores">scores</a>
+            </li>
+            <li>
+                    <a class="function" href="#tune_random_forest">tune_random_forest</a>
+            </li>
+            <li>
+                    <a class="function" href="#feature_group_sensitivity">feature_group_sensitivity</a>
+            </li>
+    </ul>
+
+
+
+        <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev" target="_blank">
+            built with <span class="visually-hidden">pdoc</span><img
+                alt="pdoc logo"
+                src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20role%3D%22img%22%20aria-label%3D%22pdoc%20logo%22%20width%3D%22300%22%20height%3D%22160%22%20viewBox%3D%220%200%20150%2080%22%3E%3Ctitle%3Epdoc%3C/title%3E%3Cpath%20d%3D%22M132.316%2048.886c.276-4.679%202.342-6.698%204.409-7.982s4.27-1.165%206.751-1.055c1.586.07%203.044.156%204.222-.482%201.142-.619%202.026-1.932%202.162-3.739.268-3.576-1.929-5.368-5.006-5.551s-7.599.524-10.517%201.606c-4.455%201.652-8.588%206.606-9.552%208.992s-2.342%206.193-1.745%2010.873%202.664%209.221%205.878%2011.79%205.878%203.808%2010.103%204.312%203.444.229%206.062.229%205.006-2.202%204.914-4.909-2.296-5.001-4.501-4.863-3.077.505-5.281.229-7.715-2.064-7.899-9.451z%22%20fill%3D%22%23198754%22/%3E%3Ccircle%20cx%3D%22101.504%22%20cy%3D%2248.943%22%20r%3D%2214.208%22%20fill%3D%22none%22%20stroke%3D%22%23198754%22%20stroke-width%3D%229.354%22/%3E%3Cpath%20d%3D%22M87.81.002c-3.637.065-5.001.454-7.014%201.232s-3.443%201.363-6.3%204.282c-1.723%201.76-3.148%205.019-3.776%207.329-.413%201.521-.316%202.63-.316%202.63l-.195%2034.612c.065%205.774-6.755%208.305-9.612%208.37s-9.678-1.038-9.743-9.408%207.128-9.521%208.362-9.521c1.413-.13%202.526-.021%203.718-.016%202.071.009%204.157-.778%204.092-4.671s-4.157-4.736-4.157-4.736c-6.3-.843-11.43%202.206-11.43%202.206S40.917%2038.15%2041.372%2049.634%2051.568%2068.19%2061.311%2068.125s18.316-7.007%2018.445-17.193l.13-22.772c.046-2.291%202.683-3.644%204.476-4.203.745-.232%201.694-.274%201.694-.274l10.457-.13s4.871-.324%207.729-3.114%204.352-6.294%204.352-6.294.974-3.049.13-4.606-.195-1.233-2.792-3.309-8.573-4.477-8.573-4.477S91.447-.063%2087.81.002zM0%2047.169l.065%2028.417S0%2080.127%204.481%2079.997s5.072-3.866%205.049-4.152l-.113-28.482s1.624-7.656%209.937-7.721%2010.002%206.942%2010.002%208.499-.909%2010.51-9.093%2010.51c-.948%200-2.99-.567-4.145-.272-3.919%201-3.194%204.554-3.194%204.554s.065%205.061%207.404%204.996%2018.575-6.034%2018.575-19.074S26.953%2030.04%2019.549%2029.91%201.234%2035.296%200%2047.169z%22%20fill%3D%22%23198754%22/%3E%3Cg%20transform%3D%22matrix%28.325601%200%200%20.325256%20-10.32669%20-45.802786%29%22%3E%3Ccircle%20cx%3D%22297.554%22%20cy%3D%22172.286%22%20r%3D%2216.5%22%20fill%3D%22%23fff%22/%3E%3Cellipse%20cx%3D%22297.709%22%20cy%3D%22172.642%22%20rx%3D%2211.071%22%20ry%3D%2210.871%22%20fill%3D%22%23105a48%22/%3E%3Ccircle%20cx%3D%22304.104%22%20cy%3D%22167.667%22%20r%3D%224.5%22%20fill%3D%22%23fff%22/%3E%3C/g%3E%3Cpath%20d%3D%22M94.661%2017.032l.893-1.476s.99.714%201.916.925%201.575.114%202.955.114l14.565-.162c1.283-.032%203.085-.762%203.02-3.293s-.373-3.503-.373-3.503l1.283-.487s.52.503.877%201.573.309%201.995.292%202.66-.227%201.541-.227%201.541%201.564-.308%202.359-1.038.823-.779%201.489-1.508.812-.86.812-.86.552-.13.877.26.341.957.065%201.46-1.672%202.206-3.247%203.066-2.76%201.427-3.929%201.768-3.848.73-7.063.714l-10.944-.114s-2.143-.081-3.02-.373-2.241-.973-2.598-1.265z%22%20fill%3D%22%23d36d49%22/%3E%3Cg%20fill%3D%22%23105a48%22%3E%3Cellipse%20cx%3D%2293.052%22%20cy%3D%2243.567%22%20rx%3D%22.869%22%20ry%3D%221.014%22%20transform%3D%22rotate%28341.022%29%22/%3E%3Cellipse%20cx%3D%22104.3%22%20cy%3D%22-16.184%22%20rx%3D%22.865%22%20ry%3D%221.009%22%20transform%3D%22rotate%2814.786%29%22/%3E%3C/g%3E%3C/svg%3E"/>
+        </a>
+</div>
+    </nav>
+    <main class="pdoc">
+            <section class="module-info">
+                    <h1 class="modulename">
+occupancy    </h1>
+
+                        <div class="docstring"><p>Occupancy forecasting package (MMA3001 individual project).</p>
+
+<p>Forecast whether a room will be occupied one hour ahead from a sensor event log.</p>
+
+<h6 id="modules">Modules</h6>
+
+<p>data      load the raw event log, aggregate it to 15-minute bins, parse environmental JSON
+features  build the target, past-only features and the chronological train/val/test split
+models    baselines, Random Forest tuning, metrics and feature-group sensitivity</p>
+</div>
+
+                        <input id="mod-occupancy-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+
+                        <label class="view-source-button" for="mod-occupancy-view-source"><span>View Source</span></label>
+
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="sd">"""Occupancy forecasting package (MMA3001 individual project).</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="sd">Forecast whether a room will be occupied one hour ahead from a sensor event log.</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="sd">Modules</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="sd">-------</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">data      load the raw event log, aggregate it to 15-minute bins, parse environmental JSON</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="sd">features  build the target, past-only features and the chronological train/val/test split</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="sd">models    baselines, Random Forest tuning, metrics and feature-group sensitivity</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="sd">"""</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.data</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">STATUS_CODE</span><span class="p">,</span> <span class="n">aggregate_chunk</span><span class="p">,</span> <span class="n">combine_chunks</span><span class="p">,</span> <span class="n">fill_time_grid</span><span class="p">,</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>                   <span class="n">load_occupancy</span><span class="p">,</span> <span class="n">load_space_lookup</span><span class="p">,</span> <span class="n">parse_env_json</span><span class="p">)</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.features</span><span class="w"> </span><span class="kn">import</span> <span class="n">FEATURES</span><span class="p">,</span> <span class="n">build_dataset</span><span class="p">,</span> <span class="n">chronological_split</span><span class="p">,</span> <span class="n">make_features</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">hour_of_week_table</span><span class="p">,</span> <span class="n">majority_baseline</span><span class="p">,</span> <span class="n">persistence_baseline</span><span class="p">,</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>                     <span class="n">predict_hour_of_week</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">tune_random_forest</span><span class="p">,</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>                     <span class="n">feature_group_sensitivity</span><span class="p">)</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="s2">"STATUS_CODE"</span><span class="p">,</span> <span class="s2">"aggregate_chunk"</span><span class="p">,</span> <span class="s2">"combine_chunks"</span><span class="p">,</span> <span class="s2">"fill_time_grid"</span><span class="p">,</span> <span class="s2">"load_occupancy"</span><span class="p">,</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="s2">"load_space_lookup"</span><span class="p">,</span> <span class="s2">"parse_env_json"</span><span class="p">,</span> <span class="s2">"FEATURES"</span><span class="p">,</span> <span class="s2">"build_dataset"</span><span class="p">,</span> <span class="s2">"chronological_split"</span><span class="p">,</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="s2">"make_features"</span><span class="p">,</span> <span class="s2">"hour_of_week_table"</span><span class="p">,</span> <span class="s2">"majority_baseline"</span><span class="p">,</span> <span class="s2">"persistence_baseline"</span><span class="p">,</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>    <span class="s2">"predict_hour_of_week"</span><span class="p">,</span> <span class="s2">"scores"</span><span class="p">,</span> <span class="s2">"tune_random_forest"</span><span class="p">,</span> <span class="s2">"feature_group_sensitivity"</span><span class="p">,</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="p">]</span>
+</span></pre></div>
+
+
+            </section>
+                <section id="STATUS_CODE">
+                    <div class="attr variable">
+            <span class="name">STATUS_CODE</span>        =
+<span class="default_value">{&#39;NotOccupied&#39;: 0, &#39;RecentlyOccupied&#39;: 1, &#39;CurrentlyOccupied&#39;: 2}</span>
+
+        
+    </div>
+    <a class="headerlink" href="#STATUS_CODE"></a>
+    
+    
+
+                </section>
+                <section id="aggregate_chunk">
+                            <input id="aggregate_chunk-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">aggregate_chunk</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">chunk</span>, </span><span class="param"><span class="n">bin_freq</span><span class="o">=</span><span class="s1">'15min'</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="aggregate_chunk-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#aggregate_chunk"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="aggregate_chunk-40"><a href="#aggregate_chunk-40"><span class="linenos">40</span></a><span class="k">def</span><span class="w"> </span><span class="nf">aggregate_chunk</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">bin_freq</span><span class="o">=</span><span class="s2">"15min"</span><span class="p">):</span>
+</span><span id="aggregate_chunk-41"><a href="#aggregate_chunk-41"><span class="linenos">41</span></a><span class="w">    </span><span class="sd">"""Aggregate one chunk of raw events to one row per (space, time bin).</span>
+</span><span id="aggregate_chunk-42"><a href="#aggregate_chunk-42"><span class="linenos">42</span></a>
+</span><span id="aggregate_chunk-43"><a href="#aggregate_chunk-43"><span class="linenos">43</span></a><span class="sd">    The status kept for a bin is the *last* event in it; headcount is the maximum.</span>
+</span><span id="aggregate_chunk-44"><a href="#aggregate_chunk-44"><span class="linenos">44</span></a>
+</span><span id="aggregate_chunk-45"><a href="#aggregate_chunk-45"><span class="linenos">45</span></a><span class="sd">    Parameters</span>
+</span><span id="aggregate_chunk-46"><a href="#aggregate_chunk-46"><span class="linenos">46</span></a><span class="sd">    ----------</span>
+</span><span id="aggregate_chunk-47"><a href="#aggregate_chunk-47"><span class="linenos">47</span></a><span class="sd">    chunk : pandas.DataFrame</span>
+</span><span id="aggregate_chunk-48"><a href="#aggregate_chunk-48"><span class="linenos">48</span></a><span class="sd">        Columns ``floorspaceid``, ``occupancystatus``, ``headcount``, ``collecteddate``.</span>
+</span><span id="aggregate_chunk-49"><a href="#aggregate_chunk-49"><span class="linenos">49</span></a><span class="sd">    bin_freq : str</span>
+</span><span id="aggregate_chunk-50"><a href="#aggregate_chunk-50"><span class="linenos">50</span></a><span class="sd">        Pandas frequency string for the bin width.</span>
+</span><span id="aggregate_chunk-51"><a href="#aggregate_chunk-51"><span class="linenos">51</span></a>
+</span><span id="aggregate_chunk-52"><a href="#aggregate_chunk-52"><span class="linenos">52</span></a><span class="sd">    Returns</span>
+</span><span id="aggregate_chunk-53"><a href="#aggregate_chunk-53"><span class="linenos">53</span></a><span class="sd">    -------</span>
+</span><span id="aggregate_chunk-54"><a href="#aggregate_chunk-54"><span class="linenos">54</span></a><span class="sd">    pandas.DataFrame</span>
+</span><span id="aggregate_chunk-55"><a href="#aggregate_chunk-55"><span class="linenos">55</span></a><span class="sd">        Columns ``floorspaceid, bin, status, headcount, n_events, t_last``.</span>
+</span><span id="aggregate_chunk-56"><a href="#aggregate_chunk-56"><span class="linenos">56</span></a><span class="sd">        Rows with an unparseable time or an unknown status are dropped.</span>
+</span><span id="aggregate_chunk-57"><a href="#aggregate_chunk-57"><span class="linenos">57</span></a><span class="sd">    """</span>
+</span><span id="aggregate_chunk-58"><a href="#aggregate_chunk-58"><span class="linenos">58</span></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="s2">"collecteddate"</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">)</span>
+</span><span id="aggregate_chunk-59"><a href="#aggregate_chunk-59"><span class="linenos">59</span></a>    <span class="n">ch</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"t"</span><span class="p">])</span>
+</span><span id="aggregate_chunk-60"><a href="#aggregate_chunk-60"><span class="linenos">60</span></a>    <span class="n">ch</span><span class="p">[</span><span class="s2">"bin"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">[</span><span class="s2">"t"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">bin_freq</span><span class="p">)</span>
+</span><span id="aggregate_chunk-61"><a href="#aggregate_chunk-61"><span class="linenos">61</span></a>    <span class="n">ch</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">[</span><span class="s2">"occupancystatus"</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">STATUS_CODE</span><span class="p">)</span>
+</span><span id="aggregate_chunk-62"><a href="#aggregate_chunk-62"><span class="linenos">62</span></a>    <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"status"</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"t"</span><span class="p">)</span>
+</span><span id="aggregate_chunk-63"><a href="#aggregate_chunk-63"><span class="linenos">63</span></a>    <span class="k">return</span> <span class="n">ch</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"floorspaceid"</span><span class="p">,</span> <span class="s2">"bin"</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+</span><span id="aggregate_chunk-64"><a href="#aggregate_chunk-64"><span class="linenos">64</span></a>        <span class="n">status</span><span class="o">=</span><span class="p">(</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"last"</span><span class="p">),</span> <span class="n">headcount</span><span class="o">=</span><span class="p">(</span><span class="s2">"headcount"</span><span class="p">,</span> <span class="s2">"max"</span><span class="p">),</span>
+</span><span id="aggregate_chunk-65"><a href="#aggregate_chunk-65"><span class="linenos">65</span></a>        <span class="n">n_events</span><span class="o">=</span><span class="p">(</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"size"</span><span class="p">),</span> <span class="n">t_last</span><span class="o">=</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="s2">"max"</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Aggregate one chunk of raw events to one row per (space, time bin).</p>
+
+<p>The status kept for a bin is the <em>last</em> event in it; headcount is the maximum.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>chunk</strong> (pandas.DataFrame):
+Columns <code>floorspaceid</code>, <code>occupancystatus</code>, <code>headcount</code>, <code>collecteddate</code>.</li>
+<li><strong>bin_freq</strong> (str):
+Pandas frequency string for the bin width.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>pandas.DataFrame</strong>: Columns <code>floorspaceid, bin, status, headcount, n_events, t_last</code>.
+Rows with an unparseable time or an unknown status are dropped.</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="combine_chunks">
+                            <input id="combine_chunks-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">combine_chunks</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">parts</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="combine_chunks-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#combine_chunks"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="combine_chunks-68"><a href="#combine_chunks-68"><span class="linenos">68</span></a><span class="k">def</span><span class="w"> </span><span class="nf">combine_chunks</span><span class="p">(</span><span class="n">parts</span><span class="p">):</span>
+</span><span id="combine_chunks-69"><a href="#combine_chunks-69"><span class="linenos">69</span></a><span class="w">    </span><span class="sd">"""Merge the per-chunk aggregates (a bin can be split across two chunks).</span>
+</span><span id="combine_chunks-70"><a href="#combine_chunks-70"><span class="linenos">70</span></a>
+</span><span id="combine_chunks-71"><a href="#combine_chunks-71"><span class="linenos">71</span></a><span class="sd">    Parameters</span>
+</span><span id="combine_chunks-72"><a href="#combine_chunks-72"><span class="linenos">72</span></a><span class="sd">    ----------</span>
+</span><span id="combine_chunks-73"><a href="#combine_chunks-73"><span class="linenos">73</span></a><span class="sd">    parts : list of pandas.DataFrame</span>
+</span><span id="combine_chunks-74"><a href="#combine_chunks-74"><span class="linenos">74</span></a><span class="sd">        Outputs of :func:`aggregate_chunk`.</span>
+</span><span id="combine_chunks-75"><a href="#combine_chunks-75"><span class="linenos">75</span></a>
+</span><span id="combine_chunks-76"><a href="#combine_chunks-76"><span class="linenos">76</span></a><span class="sd">    Returns</span>
+</span><span id="combine_chunks-77"><a href="#combine_chunks-77"><span class="linenos">77</span></a><span class="sd">    -------</span>
+</span><span id="combine_chunks-78"><a href="#combine_chunks-78"><span class="linenos">78</span></a><span class="sd">    pandas.DataFrame</span>
+</span><span id="combine_chunks-79"><a href="#combine_chunks-79"><span class="linenos">79</span></a><span class="sd">        One row per (space, bin): last status, maximum headcount, total event count.</span>
+</span><span id="combine_chunks-80"><a href="#combine_chunks-80"><span class="linenos">80</span></a><span class="sd">    """</span>
+</span><span id="combine_chunks-81"><a href="#combine_chunks-81"><span class="linenos">81</span></a>    <span class="n">occ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"t_last"</span><span class="p">)</span>
+</span><span id="combine_chunks-82"><a href="#combine_chunks-82"><span class="linenos">82</span></a>    <span class="k">return</span> <span class="n">occ</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"floorspaceid"</span><span class="p">,</span> <span class="s2">"bin"</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+</span><span id="combine_chunks-83"><a href="#combine_chunks-83"><span class="linenos">83</span></a>        <span class="n">status</span><span class="o">=</span><span class="p">(</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"last"</span><span class="p">),</span> <span class="n">headcount</span><span class="o">=</span><span class="p">(</span><span class="s2">"headcount"</span><span class="p">,</span> <span class="s2">"max"</span><span class="p">),</span>
+</span><span id="combine_chunks-84"><a href="#combine_chunks-84"><span class="linenos">84</span></a>        <span class="n">n_events</span><span class="o">=</span><span class="p">(</span><span class="s2">"n_events"</span><span class="p">,</span> <span class="s2">"sum"</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Merge the per-chunk aggregates (a bin can be split across two chunks).</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>parts</strong> (list of pandas.DataFrame):
+Outputs of <code><a href="#aggregate_chunk">aggregate_chunk()</a></code>.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>pandas.DataFrame</strong>: One row per (space, bin): last status, maximum headcount, total event count.</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="fill_time_grid">
+                            <input id="fill_time_grid-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">fill_time_grid</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">occ</span>, </span><span class="param"><span class="n">bin_freq</span><span class="o">=</span><span class="s1">'15min'</span>, </span><span class="param"><span class="n">max_ffill_bins</span><span class="o">=</span><span class="mi">8</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="fill_time_grid-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#fill_time_grid"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="fill_time_grid-87"><a href="#fill_time_grid-87"><span class="linenos"> 87</span></a><span class="k">def</span><span class="w"> </span><span class="nf">fill_time_grid</span><span class="p">(</span><span class="n">occ</span><span class="p">,</span> <span class="n">bin_freq</span><span class="o">=</span><span class="s2">"15min"</span><span class="p">,</span> <span class="n">max_ffill_bins</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+</span><span id="fill_time_grid-88"><a href="#fill_time_grid-88"><span class="linenos"> 88</span></a><span class="w">    </span><span class="sd">"""Put each space on a regular time grid, carrying the last status over short gaps.</span>
+</span><span id="fill_time_grid-89"><a href="#fill_time_grid-89"><span class="linenos"> 89</span></a>
+</span><span id="fill_time_grid-90"><a href="#fill_time_grid-90"><span class="linenos"> 90</span></a><span class="sd">    A sensor only reports when something changes, so empty bins are normal. The last known</span>
+</span><span id="fill_time_grid-91"><a href="#fill_time_grid-91"><span class="linenos"> 91</span></a><span class="sd">    status and headcount are carried forward for at most ``max_ffill_bins`` bins (8 x 15 min</span>
+</span><span id="fill_time_grid-92"><a href="#fill_time_grid-92"><span class="linenos"> 92</span></a><span class="sd">    = 2 h). Longer gaps stay empty and are dropped, rather than guessed.</span>
+</span><span id="fill_time_grid-93"><a href="#fill_time_grid-93"><span class="linenos"> 93</span></a>
+</span><span id="fill_time_grid-94"><a href="#fill_time_grid-94"><span class="linenos"> 94</span></a><span class="sd">    Parameters</span>
+</span><span id="fill_time_grid-95"><a href="#fill_time_grid-95"><span class="linenos"> 95</span></a><span class="sd">    ----------</span>
+</span><span id="fill_time_grid-96"><a href="#fill_time_grid-96"><span class="linenos"> 96</span></a><span class="sd">    occ : pandas.DataFrame</span>
+</span><span id="fill_time_grid-97"><a href="#fill_time_grid-97"><span class="linenos"> 97</span></a><span class="sd">        Output of :func:`combine_chunks`.</span>
+</span><span id="fill_time_grid-98"><a href="#fill_time_grid-98"><span class="linenos"> 98</span></a><span class="sd">    bin_freq : str</span>
+</span><span id="fill_time_grid-99"><a href="#fill_time_grid-99"><span class="linenos"> 99</span></a><span class="sd">        Bin width.</span>
+</span><span id="fill_time_grid-100"><a href="#fill_time_grid-100"><span class="linenos">100</span></a><span class="sd">    max_ffill_bins : int</span>
+</span><span id="fill_time_grid-101"><a href="#fill_time_grid-101"><span class="linenos">101</span></a><span class="sd">        Maximum number of consecutive empty bins to fill.</span>
+</span><span id="fill_time_grid-102"><a href="#fill_time_grid-102"><span class="linenos">102</span></a>
+</span><span id="fill_time_grid-103"><a href="#fill_time_grid-103"><span class="linenos">103</span></a><span class="sd">    Returns</span>
+</span><span id="fill_time_grid-104"><a href="#fill_time_grid-104"><span class="linenos">104</span></a><span class="sd">    -------</span>
+</span><span id="fill_time_grid-105"><a href="#fill_time_grid-105"><span class="linenos">105</span></a><span class="sd">    pandas.DataFrame</span>
+</span><span id="fill_time_grid-106"><a href="#fill_time_grid-106"><span class="linenos">106</span></a><span class="sd">        Columns ``timestamp, status, headcount, n_events, floorspaceid``.</span>
+</span><span id="fill_time_grid-107"><a href="#fill_time_grid-107"><span class="linenos">107</span></a><span class="sd">    """</span>
+</span><span id="fill_time_grid-108"><a href="#fill_time_grid-108"><span class="linenos">108</span></a>    <span class="n">grids</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="fill_time_grid-109"><a href="#fill_time_grid-109"><span class="linenos">109</span></a>    <span class="k">for</span> <span class="n">sid</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">occ</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"floorspaceid"</span><span class="p">):</span>
+</span><span id="fill_time_grid-110"><a href="#fill_time_grid-110"><span class="linenos">110</span></a>        <span class="n">full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="s2">"bin"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">g</span><span class="p">[</span><span class="s2">"bin"</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">freq</span><span class="o">=</span><span class="n">bin_freq</span><span class="p">)</span>
+</span><span id="fill_time_grid-111"><a href="#fill_time_grid-111"><span class="linenos">111</span></a>        <span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"bin"</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">full</span><span class="p">)</span>
+</span><span id="fill_time_grid-112"><a href="#fill_time_grid-112"><span class="linenos">112</span></a>        <span class="n">g</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"timestamp"</span>
+</span><span id="fill_time_grid-113"><a href="#fill_time_grid-113"><span class="linenos">113</span></a>        <span class="n">g</span><span class="p">[</span><span class="s2">"n_events"</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="p">[</span><span class="s2">"n_events"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="fill_time_grid-114"><a href="#fill_time_grid-114"><span class="linenos">114</span></a>        <span class="n">g</span><span class="p">[[</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"headcount"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">g</span><span class="p">[[</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"headcount"</span><span class="p">]]</span><span class="o">.</span><span class="n">ffill</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="n">max_ffill_bins</span><span class="p">)</span>
+</span><span id="fill_time_grid-115"><a href="#fill_time_grid-115"><span class="linenos">115</span></a>        <span class="n">g</span><span class="p">[</span><span class="s2">"floorspaceid"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sid</span>
+</span><span id="fill_time_grid-116"><a href="#fill_time_grid-116"><span class="linenos">116</span></a>        <span class="n">grids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
+</span><span id="fill_time_grid-117"><a href="#fill_time_grid-117"><span class="linenos">117</span></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">grids</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Put each space on a regular time grid, carrying the last status over short gaps.</p>
+
+<p>A sensor only reports when something changes, so empty bins are normal. The last known
+status and headcount are carried forward for at most <code>max_ffill_bins</code> bins (8 x 15 min
+= 2 h). Longer gaps stay empty and are dropped, rather than guessed.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>occ</strong> (pandas.DataFrame):
+Output of <code><a href="#combine_chunks">combine_chunks()</a></code>.</li>
+<li><strong>bin_freq</strong> (str):
+Bin width.</li>
+<li><strong>max_ffill_bins</strong> (int):
+Maximum number of consecutive empty bins to fill.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>pandas.DataFrame</strong>: Columns <code>timestamp, status, headcount, n_events, floorspaceid</code>.</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="load_occupancy">
+                            <input id="load_occupancy-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">load_occupancy</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">occ_path</span>,</span><span class="param">	<span class="n">space_to_room</span>,</span><span class="param">	<span class="n">bin_freq</span><span class="o">=</span><span class="s1">'15min'</span>,</span><span class="param">	<span class="n">tz</span><span class="o">=</span><span class="s1">'Australia/Melbourne'</span>,</span><span class="param">	<span class="n">occupied_states</span><span class="o">=</span><span class="p">(</span><span class="s1">'CurrentlyOccupied'</span><span class="p">,)</span>,</span><span class="param">	<span class="n">max_ffill_bins</span><span class="o">=</span><span class="mi">8</span>,</span><span class="param">	<span class="n">chunksize</span><span class="o">=</span><span class="mi">1000000</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="load_occupancy-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#load_occupancy"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="load_occupancy-120"><a href="#load_occupancy-120"><span class="linenos">120</span></a><span class="k">def</span><span class="w"> </span><span class="nf">load_occupancy</span><span class="p">(</span><span class="n">occ_path</span><span class="p">,</span> <span class="n">space_to_room</span><span class="p">,</span> <span class="n">bin_freq</span><span class="o">=</span><span class="s2">"15min"</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s2">"Australia/Melbourne"</span><span class="p">,</span>
+</span><span id="load_occupancy-121"><a href="#load_occupancy-121"><span class="linenos">121</span></a>                   <span class="n">occupied_states</span><span class="o">=</span><span class="p">(</span><span class="s2">"CurrentlyOccupied"</span><span class="p">,),</span> <span class="n">max_ffill_bins</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+</span><span id="load_occupancy-122"><a href="#load_occupancy-122"><span class="linenos">122</span></a>                   <span class="n">chunksize</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+</span><span id="load_occupancy-123"><a href="#load_occupancy-123"><span class="linenos">123</span></a><span class="w">    </span><span class="sd">"""Full pipeline: raw event log -&gt; regular 15-minute occupancy table per room.</span>
+</span><span id="load_occupancy-124"><a href="#load_occupancy-124"><span class="linenos">124</span></a>
+</span><span id="load_occupancy-125"><a href="#load_occupancy-125"><span class="linenos">125</span></a><span class="sd">    Parameters</span>
+</span><span id="load_occupancy-126"><a href="#load_occupancy-126"><span class="linenos">126</span></a><span class="sd">    ----------</span>
+</span><span id="load_occupancy-127"><a href="#load_occupancy-127"><span class="linenos">127</span></a><span class="sd">    occ_path : str</span>
+</span><span id="load_occupancy-128"><a href="#load_occupancy-128"><span class="linenos">128</span></a><span class="sd">        Path to the occupancy CSV.</span>
+</span><span id="load_occupancy-129"><a href="#load_occupancy-129"><span class="linenos">129</span></a><span class="sd">    space_to_room : dict</span>
+</span><span id="load_occupancy-130"><a href="#load_occupancy-130"><span class="linenos">130</span></a><span class="sd">        ``{SpaceId: room}`` from :func:`load_space_lookup`. Unknown spaces are named</span>
+</span><span id="load_occupancy-131"><a href="#load_occupancy-131"><span class="linenos">131</span></a><span class="sd">        ``unmapped_&lt;first 8 characters of the id&gt;``.</span>
+</span><span id="load_occupancy-132"><a href="#load_occupancy-132"><span class="linenos">132</span></a><span class="sd">    bin_freq, tz, max_ffill_bins, chunksize</span>
+</span><span id="load_occupancy-133"><a href="#load_occupancy-133"><span class="linenos">133</span></a><span class="sd">        Bin width, local time zone, maximum gap to fill, rows read per chunk.</span>
+</span><span id="load_occupancy-134"><a href="#load_occupancy-134"><span class="linenos">134</span></a><span class="sd">    occupied_states : iterable of str</span>
+</span><span id="load_occupancy-135"><a href="#load_occupancy-135"><span class="linenos">135</span></a><span class="sd">        Statuses that count as occupied (default only ``CurrentlyOccupied``).</span>
+</span><span id="load_occupancy-136"><a href="#load_occupancy-136"><span class="linenos">136</span></a>
+</span><span id="load_occupancy-137"><a href="#load_occupancy-137"><span class="linenos">137</span></a><span class="sd">    Returns</span>
+</span><span id="load_occupancy-138"><a href="#load_occupancy-138"><span class="linenos">138</span></a><span class="sd">    -------</span>
+</span><span id="load_occupancy-139"><a href="#load_occupancy-139"><span class="linenos">139</span></a><span class="sd">    pandas.DataFrame</span>
+</span><span id="load_occupancy-140"><a href="#load_occupancy-140"><span class="linenos">140</span></a><span class="sd">        Columns include ``timestamp`` (UTC), ``local`` (tz-aware local time), ``room``,</span>
+</span><span id="load_occupancy-141"><a href="#load_occupancy-141"><span class="linenos">141</span></a><span class="sd">        ``status`` (0/1/2), ``headcount`` and ``occupied`` (0/1).</span>
+</span><span id="load_occupancy-142"><a href="#load_occupancy-142"><span class="linenos">142</span></a><span class="sd">    """</span>
+</span><span id="load_occupancy-143"><a href="#load_occupancy-143"><span class="linenos">143</span></a>    <span class="n">reader</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">occ_path</span><span class="p">,</span>
+</span><span id="load_occupancy-144"><a href="#load_occupancy-144"><span class="linenos">144</span></a>                         <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">"floorspaceid"</span><span class="p">,</span> <span class="s2">"occupancystatus"</span><span class="p">,</span> <span class="s2">"headcount"</span><span class="p">,</span> <span class="s2">"collecteddate"</span><span class="p">],</span>
+</span><span id="load_occupancy-145"><a href="#load_occupancy-145"><span class="linenos">145</span></a>                         <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">)</span>
+</span><span id="load_occupancy-146"><a href="#load_occupancy-146"><span class="linenos">146</span></a>    <span class="n">occ</span> <span class="o">=</span> <span class="n">combine_chunks</span><span class="p">([</span><span class="n">aggregate_chunk</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">bin_freq</span><span class="p">)</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">])</span>
+</span><span id="load_occupancy-147"><a href="#load_occupancy-147"><span class="linenos">147</span></a>    <span class="n">occ</span> <span class="o">=</span> <span class="n">fill_time_grid</span><span class="p">(</span><span class="n">occ</span><span class="p">,</span> <span class="n">bin_freq</span><span class="p">,</span> <span class="n">max_ffill_bins</span><span class="p">)</span>
+</span><span id="load_occupancy-148"><a href="#load_occupancy-148"><span class="linenos">148</span></a>    <span class="n">occ</span><span class="p">[</span><span class="s2">"room"</span><span class="p">]</span> <span class="o">=</span> <span class="n">occ</span><span class="p">[</span><span class="s2">"floorspaceid"</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">space_to_room</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span>
+</span><span id="load_occupancy-149"><a href="#load_occupancy-149"><span class="linenos">149</span></a>        <span class="s2">"unmapped_"</span> <span class="o">+</span> <span class="n">occ</span><span class="p">[</span><span class="s2">"floorspaceid"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="mi">8</span><span class="p">])</span>
+</span><span id="load_occupancy-150"><a href="#load_occupancy-150"><span class="linenos">150</span></a>    <span class="n">occ</span> <span class="o">=</span> <span class="n">occ</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"status"</span><span class="p">])</span>
+</span><span id="load_occupancy-151"><a href="#load_occupancy-151"><span class="linenos">151</span></a>    <span class="n">code_to_name</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">STATUS_CODE</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span><span id="load_occupancy-152"><a href="#load_occupancy-152"><span class="linenos">152</span></a>    <span class="n">occ</span><span class="p">[</span><span class="s2">"occupied"</span><span class="p">]</span> <span class="o">=</span> <span class="n">occ</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">code_to_name</span><span class="p">)</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">occupied_states</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="load_occupancy-153"><a href="#load_occupancy-153"><span class="linenos">153</span></a>    <span class="n">occ</span><span class="p">[</span><span class="s2">"local"</span><span class="p">]</span> <span class="o">=</span> <span class="n">occ</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="n">tz</span><span class="p">)</span>
+</span><span id="load_occupancy-154"><a href="#load_occupancy-154"><span class="linenos">154</span></a>    <span class="k">return</span> <span class="n">occ</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Full pipeline: raw event log -> regular 15-minute occupancy table per room.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>occ_path</strong> (str):
+Path to the occupancy CSV.</li>
+<li><strong>space_to_room</strong> (dict):
+<code>{SpaceId: room}</code> from <code><a href="#load_space_lookup">load_space_lookup()</a></code>. Unknown spaces are named
+<code>unmapped_&lt;first 8 characters of the id&gt;</code>.</li>
+<li><strong>bin_freq, tz, max_ffill_bins, chunksize</strong>: Bin width, local time zone, maximum gap to fill, rows read per chunk.</li>
+<li><strong>occupied_states</strong> (iterable of str):
+Statuses that count as occupied (default only <code>CurrentlyOccupied</code>).</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>pandas.DataFrame</strong>: Columns include <code>timestamp</code> (UTC), <code>local</code> (tz-aware local time), <code>room</code>,
+<code>status</code> (0/1/2), <code>headcount</code> and <code>occupied</code> (0/1).</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="load_space_lookup">
+                            <input id="load_space_lookup-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">load_space_lookup</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">map_path</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="load_space_lookup-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#load_space_lookup"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="load_space_lookup-17"><a href="#load_space_lookup-17"><span class="linenos">17</span></a><span class="k">def</span><span class="w"> </span><span class="nf">load_space_lookup</span><span class="p">(</span><span class="n">map_path</span><span class="p">):</span>
+</span><span id="load_space_lookup-18"><a href="#load_space_lookup-18"><span class="linenos">18</span></a><span class="w">    </span><span class="sd">"""Read the sensor lookup spreadsheet.</span>
+</span><span id="load_space_lookup-19"><a href="#load_space_lookup-19"><span class="linenos">19</span></a>
+</span><span id="load_space_lookup-20"><a href="#load_space_lookup-20"><span class="linenos">20</span></a><span class="sd">    Parameters</span>
+</span><span id="load_space_lookup-21"><a href="#load_space_lookup-21"><span class="linenos">21</span></a><span class="sd">    ----------</span>
+</span><span id="load_space_lookup-22"><a href="#load_space_lookup-22"><span class="linenos">22</span></a><span class="sd">    map_path : str</span>
+</span><span id="load_space_lookup-23"><a href="#load_space_lookup-23"><span class="linenos">23</span></a><span class="sd">        Path to ``Sensor ID and Locations.xlsx``. Sheet 1 maps environmental sensors to</span>
+</span><span id="load_space_lookup-24"><a href="#load_space_lookup-24"><span class="linenos">24</span></a><span class="sd">        rooms, sheet 2 maps occupancy ``SpaceId`` values to rooms.</span>
+</span><span id="load_space_lookup-25"><a href="#load_space_lookup-25"><span class="linenos">25</span></a>
+</span><span id="load_space_lookup-26"><a href="#load_space_lookup-26"><span class="linenos">26</span></a><span class="sd">    Returns</span>
+</span><span id="load_space_lookup-27"><a href="#load_space_lookup-27"><span class="linenos">27</span></a><span class="sd">    -------</span>
+</span><span id="load_space_lookup-28"><a href="#load_space_lookup-28"><span class="linenos">28</span></a><span class="sd">    env_map : pandas.DataFrame</span>
+</span><span id="load_space_lookup-29"><a href="#load_space_lookup-29"><span class="linenos">29</span></a><span class="sd">        Environmental sensor lookup (first sheet).</span>
+</span><span id="load_space_lookup-30"><a href="#load_space_lookup-30"><span class="linenos">30</span></a><span class="sd">    space_to_room : dict</span>
+</span><span id="load_space_lookup-31"><a href="#load_space_lookup-31"><span class="linenos">31</span></a><span class="sd">        ``{SpaceId: room name}`` for the occupancy sensors.</span>
+</span><span id="load_space_lookup-32"><a href="#load_space_lookup-32"><span class="linenos">32</span></a><span class="sd">    """</span>
+</span><span id="load_space_lookup-33"><a href="#load_space_lookup-33"><span class="linenos">33</span></a>    <span class="n">sheets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">map_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+</span><span id="load_space_lookup-34"><a href="#load_space_lookup-34"><span class="linenos">34</span></a>    <span class="n">env_map</span><span class="p">,</span> <span class="n">occ_map</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sheets</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">sheets</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="load_space_lookup-35"><a href="#load_space_lookup-35"><span class="linenos">35</span></a>    <span class="n">space_to_room</span> <span class="o">=</span> <span class="p">(</span><span class="n">occ_map</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"SpaceId"</span><span class="p">])</span>
+</span><span id="load_space_lookup-36"><a href="#load_space_lookup-36"><span class="linenos">36</span></a>                     <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"SpaceId"</span><span class="p">)[</span><span class="s2">"Floor/Room"</span><span class="p">]</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+</span><span id="load_space_lookup-37"><a href="#load_space_lookup-37"><span class="linenos">37</span></a>    <span class="k">return</span> <span class="n">env_map</span><span class="p">,</span> <span class="n">space_to_room</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Read the sensor lookup spreadsheet.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>map_path</strong> (str):
+Path to <code>Sensor ID and Locations.xlsx</code>. Sheet 1 maps environmental sensors to
+rooms, sheet 2 maps occupancy <code>SpaceId</code> values to rooms.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>env_map</strong> (pandas.DataFrame):
+Environmental sensor lookup (first sheet).</li>
+<li><strong>space_to_room</strong> (dict):
+<code>{SpaceId: room name}</code> for the occupancy sensors.</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="parse_env_json">
+                            <input id="parse_env_json-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">parse_env_json</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">js</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="parse_env_json-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#parse_env_json"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="parse_env_json-157"><a href="#parse_env_json-157"><span class="linenos">157</span></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_env_json</span><span class="p">(</span><span class="n">js</span><span class="p">):</span>
+</span><span id="parse_env_json-158"><a href="#parse_env_json-158"><span class="linenos">158</span></a><span class="w">    </span><span class="sd">"""Parse the JSON text in the environmental sensor ``jsondata`` column.</span>
+</span><span id="parse_env_json-159"><a href="#parse_env_json-159"><span class="linenos">159</span></a>
+</span><span id="parse_env_json-160"><a href="#parse_env_json-160"><span class="linenos">160</span></a><span class="sd">    Parameters</span>
+</span><span id="parse_env_json-161"><a href="#parse_env_json-161"><span class="linenos">161</span></a><span class="sd">    ----------</span>
+</span><span id="parse_env_json-162"><a href="#parse_env_json-162"><span class="linenos">162</span></a><span class="sd">    js : str</span>
+</span><span id="parse_env_json-163"><a href="#parse_env_json-163"><span class="linenos">163</span></a><span class="sd">        JSON list of ``{"variable": {"name": ...}, "values": [{"value": ..., "time": ...}]}``.</span>
+</span><span id="parse_env_json-164"><a href="#parse_env_json-164"><span class="linenos">164</span></a>
+</span><span id="parse_env_json-165"><a href="#parse_env_json-165"><span class="linenos">165</span></a><span class="sd">    Returns</span>
+</span><span id="parse_env_json-166"><a href="#parse_env_json-166"><span class="linenos">166</span></a><span class="sd">    -------</span>
+</span><span id="parse_env_json-167"><a href="#parse_env_json-167"><span class="linenos">167</span></a><span class="sd">    dict or None</span>
+</span><span id="parse_env_json-168"><a href="#parse_env_json-168"><span class="linenos">168</span></a><span class="sd">        ``{variable name: value, "_t": unix time}``, or ``None`` if the text is malformed.</span>
+</span><span id="parse_env_json-169"><a href="#parse_env_json-169"><span class="linenos">169</span></a><span class="sd">    """</span>
+</span><span id="parse_env_json-170"><a href="#parse_env_json-170"><span class="linenos">170</span></a>    <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="parse_env_json-171"><a href="#parse_env_json-171"><span class="linenos">171</span></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="parse_env_json-172"><a href="#parse_env_json-172"><span class="linenos">172</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">js</span><span class="p">):</span>
+</span><span id="parse_env_json-173"><a href="#parse_env_json-173"><span class="linenos">173</span></a>            <span class="n">v</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s2">"values"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="parse_env_json-174"><a href="#parse_env_json-174"><span class="linenos">174</span></a>            <span class="n">out</span><span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s2">"variable"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span>
+</span><span id="parse_env_json-175"><a href="#parse_env_json-175"><span class="linenos">175</span></a>            <span class="n">out</span><span class="p">[</span><span class="s2">"_t"</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span>
+</span><span id="parse_env_json-176"><a href="#parse_env_json-176"><span class="linenos">176</span></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span><span id="parse_env_json-177"><a href="#parse_env_json-177"><span class="linenos">177</span></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="parse_env_json-178"><a href="#parse_env_json-178"><span class="linenos">178</span></a>    <span class="k">return</span> <span class="n">out</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Parse the JSON text in the environmental sensor <code>jsondata</code> column.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>js</strong> (str):
+JSON list of <code>{"variable": {"name": ...}, "values": [{"value": ..., "time": ...}]}</code>.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>dict or None</strong>: <code>{variable name: value, "_t": unix time}</code>, or <code>None</code> if the text is malformed.</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="FEATURES">
+                    <div class="attr variable">
+            <span class="name">FEATURES</span>        =
+<input id="FEATURES-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+            <label class="view-value-button pdoc-button" for="FEATURES-view-value"></label><span class="default_value">[&#39;occupied&#39;, &#39;headcount&#39;, &#39;occ_mean_1h&#39;, &#39;occ_mean_4h&#39;, &#39;occ_last_week&#39;, &#39;hour_sin&#39;, &#39;hour_cos&#39;, &#39;dayofweek&#39;, &#39;is_weekend&#39;, &#39;room_code&#39;]</span>
+
+        
+    </div>
+    <a class="headerlink" href="#FEATURES"></a>
+    
+    
+
+                </section>
+                <section id="build_dataset">
+                            <input id="build_dataset-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">build_dataset</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">occ</span>, </span><span class="param"><span class="n">horizon_bins</span><span class="o">=</span><span class="mi">4</span>, </span><span class="param"><span class="n">include_recent</span><span class="o">=</span><span class="kc">False</span>, </span><span class="param"><span class="n">bin_freq</span><span class="o">=</span><span class="s1">'15min'</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="build_dataset-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#build_dataset"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="build_dataset-83"><a href="#build_dataset-83"><span class="linenos"> 83</span></a><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="n">occ</span><span class="p">,</span> <span class="n">horizon_bins</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">include_recent</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bin_freq</span><span class="o">=</span><span class="s2">"15min"</span><span class="p">):</span>
+</span><span id="build_dataset-84"><a href="#build_dataset-84"><span class="linenos"> 84</span></a><span class="w">    </span><span class="sd">"""Features, target and 60/20/20 split from the binned table, in one call.</span>
+</span><span id="build_dataset-85"><a href="#build_dataset-85"><span class="linenos"> 85</span></a>
+</span><span id="build_dataset-86"><a href="#build_dataset-86"><span class="linenos"> 86</span></a><span class="sd">    Parameters</span>
+</span><span id="build_dataset-87"><a href="#build_dataset-87"><span class="linenos"> 87</span></a><span class="sd">    ----------</span>
+</span><span id="build_dataset-88"><a href="#build_dataset-88"><span class="linenos"> 88</span></a><span class="sd">    occ : pandas.DataFrame</span>
+</span><span id="build_dataset-89"><a href="#build_dataset-89"><span class="linenos"> 89</span></a><span class="sd">        Output of ``load_occupancy`` (needs a ``status`` column of 0/1/2).</span>
+</span><span id="build_dataset-90"><a href="#build_dataset-90"><span class="linenos"> 90</span></a><span class="sd">    horizon_bins : int</span>
+</span><span id="build_dataset-91"><a href="#build_dataset-91"><span class="linenos"> 91</span></a><span class="sd">        Forecast horizon in bins.</span>
+</span><span id="build_dataset-92"><a href="#build_dataset-92"><span class="linenos"> 92</span></a><span class="sd">    include_recent : bool</span>
+</span><span id="build_dataset-93"><a href="#build_dataset-93"><span class="linenos"> 93</span></a><span class="sd">        If True, ``RecentlyOccupied`` also counts as occupied.</span>
+</span><span id="build_dataset-94"><a href="#build_dataset-94"><span class="linenos"> 94</span></a><span class="sd">    bin_freq : str</span>
+</span><span id="build_dataset-95"><a href="#build_dataset-95"><span class="linenos"> 95</span></a><span class="sd">        Bin width.</span>
+</span><span id="build_dataset-96"><a href="#build_dataset-96"><span class="linenos"> 96</span></a>
+</span><span id="build_dataset-97"><a href="#build_dataset-97"><span class="linenos"> 97</span></a><span class="sd">    Returns</span>
+</span><span id="build_dataset-98"><a href="#build_dataset-98"><span class="linenos"> 98</span></a><span class="sd">    -------</span>
+</span><span id="build_dataset-99"><a href="#build_dataset-99"><span class="linenos"> 99</span></a><span class="sd">    train, val, test : pandas.DataFrame</span>
+</span><span id="build_dataset-100"><a href="#build_dataset-100"><span class="linenos">100</span></a><span class="sd">    """</span>
+</span><span id="build_dataset-101"><a href="#build_dataset-101"><span class="linenos">101</span></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">occ</span><span class="p">[[</span><span class="s2">"room"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"local"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">,</span> <span class="s2">"headcount"</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="build_dataset-102"><a href="#build_dataset-102"><span class="linenos">102</span></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"occupied"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">if</span> <span class="n">include_recent</span> <span class="k">else</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="build_dataset-103"><a href="#build_dataset-103"><span class="linenos">103</span></a>    <span class="k">return</span> <span class="n">chronological_split</span><span class="p">(</span><span class="n">make_features</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">horizon_bins</span><span class="p">,</span> <span class="n">bin_freq</span><span class="p">))</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Features, target and 60/20/20 split from the binned table, in one call.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>occ</strong> (pandas.DataFrame):
+Output of <code><a href="#load_occupancy">load_occupancy</a></code> (needs a <code>status</code> column of 0/1/2).</li>
+<li><strong>horizon_bins</strong> (int):
+Forecast horizon in bins.</li>
+<li><strong>include_recent</strong> (bool):
+If True, <code>RecentlyOccupied</code> also counts as occupied.</li>
+<li><strong>bin_freq</strong> (str):
+Bin width.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>train, val, test</strong> (pandas.DataFrame):</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="chronological_split">
+                            <input id="chronological_split-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">chronological_split</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">d</span>, </span><span class="param"><span class="n">fractions</span><span class="o">=</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="chronological_split-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#chronological_split"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="chronological_split-63"><a href="#chronological_split-63"><span class="linenos">63</span></a><span class="k">def</span><span class="w"> </span><span class="nf">chronological_split</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fractions</span><span class="o">=</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)):</span>
+</span><span id="chronological_split-64"><a href="#chronological_split-64"><span class="linenos">64</span></a><span class="w">    </span><span class="sd">"""Split by time, never at random: the model is tested on a later period than it trained on.</span>
+</span><span id="chronological_split-65"><a href="#chronological_split-65"><span class="linenos">65</span></a>
+</span><span id="chronological_split-66"><a href="#chronological_split-66"><span class="linenos">66</span></a><span class="sd">    Parameters</span>
+</span><span id="chronological_split-67"><a href="#chronological_split-67"><span class="linenos">67</span></a><span class="sd">    ----------</span>
+</span><span id="chronological_split-68"><a href="#chronological_split-68"><span class="linenos">68</span></a><span class="sd">    d : pandas.DataFrame</span>
+</span><span id="chronological_split-69"><a href="#chronological_split-69"><span class="linenos">69</span></a><span class="sd">        Needs a ``timestamp`` column.</span>
+</span><span id="chronological_split-70"><a href="#chronological_split-70"><span class="linenos">70</span></a><span class="sd">    fractions : tuple of float</span>
+</span><span id="chronological_split-71"><a href="#chronological_split-71"><span class="linenos">71</span></a><span class="sd">        Timestamp quantiles ending train and validation (0.6, 0.8 gives 60/20/20).</span>
+</span><span id="chronological_split-72"><a href="#chronological_split-72"><span class="linenos">72</span></a>
+</span><span id="chronological_split-73"><a href="#chronological_split-73"><span class="linenos">73</span></a><span class="sd">    Returns</span>
+</span><span id="chronological_split-74"><a href="#chronological_split-74"><span class="linenos">74</span></a><span class="sd">    -------</span>
+</span><span id="chronological_split-75"><a href="#chronological_split-75"><span class="linenos">75</span></a><span class="sd">    train, val, test : pandas.DataFrame</span>
+</span><span id="chronological_split-76"><a href="#chronological_split-76"><span class="linenos">76</span></a><span class="sd">    """</span>
+</span><span id="chronological_split-77"><a href="#chronological_split-77"><span class="linenos">77</span></a>    <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">fractions</span><span class="p">))</span>
+</span><span id="chronological_split-78"><a href="#chronological_split-78"><span class="linenos">78</span></a>    <span class="k">return</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&lt;=</span> <span class="n">t1</span><span class="p">],</span>
+</span><span id="chronological_split-79"><a href="#chronological_split-79"><span class="linenos">79</span></a>            <span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&gt;</span> <span class="n">t1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&lt;=</span> <span class="n">t2</span><span class="p">)],</span>
+</span><span id="chronological_split-80"><a href="#chronological_split-80"><span class="linenos">80</span></a>            <span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&gt;</span> <span class="n">t2</span><span class="p">])</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Split by time, never at random: the model is tested on a later period than it trained on.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>d</strong> (pandas.DataFrame):
+Needs a <code>timestamp</code> column.</li>
+<li><strong>fractions</strong> (tuple of float):
+Timestamp quantiles ending train and validation (0.6, 0.8 gives 60/20/20).</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>train, val, test</strong> (pandas.DataFrame):</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="make_features">
+                            <input id="make_features-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">make_features</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">occ</span>, </span><span class="param"><span class="n">horizon_bins</span><span class="o">=</span><span class="mi">4</span>, </span><span class="param"><span class="n">bin_freq</span><span class="o">=</span><span class="s1">'15min'</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="make_features-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#make_features"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="make_features-11"><a href="#make_features-11"><span class="linenos">11</span></a><span class="k">def</span><span class="w"> </span><span class="nf">make_features</span><span class="p">(</span><span class="n">occ</span><span class="p">,</span> <span class="n">horizon_bins</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">bin_freq</span><span class="o">=</span><span class="s2">"15min"</span><span class="p">):</span>
+</span><span id="make_features-12"><a href="#make_features-12"><span class="linenos">12</span></a><span class="w">    </span><span class="sd">"""Add the target and features to a regular occupancy table.</span>
+</span><span id="make_features-13"><a href="#make_features-13"><span class="linenos">13</span></a>
+</span><span id="make_features-14"><a href="#make_features-14"><span class="linenos">14</span></a><span class="sd">    The target is the occupancy ``horizon_bins`` bins ahead. It is matched on real</span>
+</span><span id="make_features-15"><a href="#make_features-15"><span class="linenos">15</span></a><span class="sd">    timestamps, so a gap in the data gives a missing target and the row is dropped, rather</span>
+</span><span id="make_features-16"><a href="#make_features-16"><span class="linenos">16</span></a><span class="sd">    than silently pairing the wrong row. Features use the present and past only (no leakage):</span>
+</span><span id="make_features-17"><a href="#make_features-17"><span class="linenos">17</span></a><span class="sd">    current state, rolling means over the last 1 h and 4 h, the same time one week earlier</span>
+</span><span id="make_features-18"><a href="#make_features-18"><span class="linenos">18</span></a><span class="sd">    (``-1`` if unknown), and sine/cosine of local time of day, day of week and room.</span>
+</span><span id="make_features-19"><a href="#make_features-19"><span class="linenos">19</span></a>
+</span><span id="make_features-20"><a href="#make_features-20"><span class="linenos">20</span></a><span class="sd">    Parameters</span>
+</span><span id="make_features-21"><a href="#make_features-21"><span class="linenos">21</span></a><span class="sd">    ----------</span>
+</span><span id="make_features-22"><a href="#make_features-22"><span class="linenos">22</span></a><span class="sd">    occ : pandas.DataFrame</span>
+</span><span id="make_features-23"><a href="#make_features-23"><span class="linenos">23</span></a><span class="sd">        Needs columns ``room, timestamp, local, occupied, headcount``.</span>
+</span><span id="make_features-24"><a href="#make_features-24"><span class="linenos">24</span></a><span class="sd">    horizon_bins : int</span>
+</span><span id="make_features-25"><a href="#make_features-25"><span class="linenos">25</span></a><span class="sd">        Forecast horizon in bins (4 x 15 min = 1 hour).</span>
+</span><span id="make_features-26"><a href="#make_features-26"><span class="linenos">26</span></a><span class="sd">    bin_freq : str</span>
+</span><span id="make_features-27"><a href="#make_features-27"><span class="linenos">27</span></a><span class="sd">        Bin width, must match the table.</span>
+</span><span id="make_features-28"><a href="#make_features-28"><span class="linenos">28</span></a>
+</span><span id="make_features-29"><a href="#make_features-29"><span class="linenos">29</span></a><span class="sd">    Returns</span>
+</span><span id="make_features-30"><a href="#make_features-30"><span class="linenos">30</span></a><span class="sd">    -------</span>
+</span><span id="make_features-31"><a href="#make_features-31"><span class="linenos">31</span></a><span class="sd">    pandas.DataFrame</span>
+</span><span id="make_features-32"><a href="#make_features-32"><span class="linenos">32</span></a><span class="sd">        Rows with a known target, with ``target`` and every column in :data:`FEATURES`.</span>
+</span><span id="make_features-33"><a href="#make_features-33"><span class="linenos">33</span></a><span class="sd">    """</span>
+</span><span id="make_features-34"><a href="#make_features-34"><span class="linenos">34</span></a>    <span class="n">step</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">bin_freq</span><span class="p">)</span>
+</span><span id="make_features-35"><a href="#make_features-35"><span class="linenos">35</span></a>    <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">occ</span><span class="p">[[</span><span class="s2">"room"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"local"</span><span class="p">,</span> <span class="s2">"occupied"</span><span class="p">,</span> <span class="s2">"headcount"</span><span class="p">]]</span>
+</span><span id="make_features-36"><a href="#make_features-36"><span class="linenos">36</span></a>         <span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">"room"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</span><span id="make_features-37"><a href="#make_features-37"><span class="linenos">37</span></a>
+</span><span id="make_features-38"><a href="#make_features-38"><span class="linenos">38</span></a>    <span class="n">tgt</span> <span class="o">=</span> <span class="n">d</span><span class="p">[[</span><span class="s2">"room"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"occupied"</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="make_features-39"><a href="#make_features-39"><span class="linenos">39</span></a>    <span class="n">tgt</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">]</span> <span class="o">-=</span> <span class="n">horizon_bins</span> <span class="o">*</span> <span class="n">step</span>
+</span><span id="make_features-40"><a href="#make_features-40"><span class="linenos">40</span></a>    <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">tgt</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"occupied"</span><span class="p">:</span> <span class="s2">"target"</span><span class="p">}),</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">"room"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+</span><span id="make_features-41"><a href="#make_features-41"><span class="linenos">41</span></a>
+</span><span id="make_features-42"><a href="#make_features-42"><span class="linenos">42</span></a>    <span class="n">wk</span> <span class="o">=</span> <span class="n">d</span><span class="p">[[</span><span class="s2">"room"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"occupied"</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="make_features-43"><a href="#make_features-43"><span class="linenos">43</span></a>    <span class="n">wk</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">]</span> <span class="o">+=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</span><span id="make_features-44"><a href="#make_features-44"><span class="linenos">44</span></a>    <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">wk</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"occupied"</span><span class="p">:</span> <span class="s2">"occ_last_week"</span><span class="p">}),</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">"room"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+</span><span id="make_features-45"><a href="#make_features-45"><span class="linenos">45</span></a>
+</span><span id="make_features-46"><a href="#make_features-46"><span class="linenos">46</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"occ_mean_1h"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"room"</span><span class="p">)[</span><span class="s2">"occupied"</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</span><span id="make_features-47"><a href="#make_features-47"><span class="linenos">47</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"occ_mean_4h"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"room"</span><span class="p">)[</span><span class="s2">"occupied"</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</span><span id="make_features-48"><a href="#make_features-48"><span class="linenos">48</span></a>
+</span><span id="make_features-49"><a href="#make_features-49"><span class="linenos">49</span></a>    <span class="n">hr</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s2">"local"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s2">"local"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">minute</span> <span class="o">/</span> <span class="mi">60</span>
+</span><span id="make_features-50"><a href="#make_features-50"><span class="linenos">50</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"hour_sin"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">hr</span> <span class="o">/</span> <span class="mi">24</span><span class="p">)</span>
+</span><span id="make_features-51"><a href="#make_features-51"><span class="linenos">51</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"hour_cos"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">hr</span> <span class="o">/</span> <span class="mi">24</span><span class="p">)</span>
+</span><span id="make_features-52"><a href="#make_features-52"><span class="linenos">52</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"hour"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s2">"local"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+</span><span id="make_features-53"><a href="#make_features-53"><span class="linenos">53</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"dayofweek"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s2">"local"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span>
+</span><span id="make_features-54"><a href="#make_features-54"><span class="linenos">54</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"is_weekend"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"dayofweek"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="make_features-55"><a href="#make_features-55"><span class="linenos">55</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"room_code"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s2">"room"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"category"</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+</span><span id="make_features-56"><a href="#make_features-56"><span class="linenos">56</span></a>
+</span><span id="make_features-57"><a href="#make_features-57"><span class="linenos">57</span></a>    <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">FEATURES</span> <span class="k">if</span> <span class="n">f</span> <span class="o">!=</span> <span class="s2">"occ_last_week"</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="make_features-58"><a href="#make_features-58"><span class="linenos">58</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="make_features-59"><a href="#make_features-59"><span class="linenos">59</span></a>    <span class="n">d</span><span class="p">[</span><span class="s2">"occ_last_week"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s2">"occ_last_week"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="make_features-60"><a href="#make_features-60"><span class="linenos">60</span></a>    <span class="k">return</span> <span class="n">d</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Add the target and features to a regular occupancy table.</p>
+
+<p>The target is the occupancy <code>horizon_bins</code> bins ahead. It is matched on real
+timestamps, so a gap in the data gives a missing target and the row is dropped, rather
+than silently pairing the wrong row. Features use the present and past only (no leakage):
+current state, rolling means over the last 1 h and 4 h, the same time one week earlier
+(<code>-1</code> if unknown), and sine/cosine of local time of day, day of week and room.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>occ</strong> (pandas.DataFrame):
+Needs columns <code>room, timestamp, local, occupied, headcount</code>.</li>
+<li><strong>horizon_bins</strong> (int):
+Forecast horizon in bins (4 x 15 min = 1 hour).</li>
+<li><strong>bin_freq</strong> (str):
+Bin width, must match the table.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>pandas.DataFrame</strong>: Rows with a known target, with <code>target</code> and every column in <code><a href="#FEATURES">FEATURES</a></code>.</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="hour_of_week_table">
+                            <input id="hour_of_week_table-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">hour_of_week_table</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">train</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="hour_of_week_table-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#hour_of_week_table"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="hour_of_week_table-40"><a href="#hour_of_week_table-40"><span class="linenos">40</span></a><span class="k">def</span><span class="w"> </span><span class="nf">hour_of_week_table</span><span class="p">(</span><span class="n">train</span><span class="p">):</span>
+</span><span id="hour_of_week_table-41"><a href="#hour_of_week_table-41"><span class="linenos">41</span></a><span class="w">    </span><span class="sd">"""Baseline C lookup: for each hour of the week, 1 if the room was occupied &gt;= 50% of the time.</span>
+</span><span id="hour_of_week_table-42"><a href="#hour_of_week_table-42"><span class="linenos">42</span></a>
+</span><span id="hour_of_week_table-43"><a href="#hour_of_week_table-43"><span class="linenos">43</span></a><span class="sd">    Returns</span>
+</span><span id="hour_of_week_table-44"><a href="#hour_of_week_table-44"><span class="linenos">44</span></a><span class="sd">    -------</span>
+</span><span id="hour_of_week_table-45"><a href="#hour_of_week_table-45"><span class="linenos">45</span></a><span class="sd">    pandas.Series</span>
+</span><span id="hour_of_week_table-46"><a href="#hour_of_week_table-46"><span class="linenos">46</span></a><span class="sd">        Index ``dayofweek * 24 + hour``, values 0/1.</span>
+</span><span id="hour_of_week_table-47"><a href="#hour_of_week_table-47"><span class="linenos">47</span></a><span class="sd">    """</span>
+</span><span id="hour_of_week_table-48"><a href="#hour_of_week_table-48"><span class="linenos">48</span></a>    <span class="k">return</span> <span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">dayofweek</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">+</span> <span class="n">train</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+</span><span id="hour_of_week_table-49"><a href="#hour_of_week_table-49"><span class="linenos">49</span></a>            <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"k"</span><span class="p">)</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Baseline C lookup: for each hour of the week, 1 if the room was occupied &gt;= 50% of the time.</p>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>pandas.Series</strong>: Index <code>dayofweek * 24 + hour</code>, values 0/1.</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="majority_baseline">
+                            <input id="majority_baseline-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">majority_baseline</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">train</span>, </span><span class="param"><span class="n">n</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="majority_baseline-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#majority_baseline"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="majority_baseline-30"><a href="#majority_baseline-30"><span class="linenos">30</span></a><span class="k">def</span><span class="w"> </span><span class="nf">majority_baseline</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span><span id="majority_baseline-31"><a href="#majority_baseline-31"><span class="linenos">31</span></a><span class="w">    </span><span class="sd">"""Baseline A: always predict the most common training label. Returns ``n`` predictions."""</span>
+</span><span id="majority_baseline-32"><a href="#majority_baseline-32"><span class="linenos">32</span></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">train</span><span class="p">[</span><span class="s2">"target"</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Baseline A: always predict the most common training label. Returns <code>n</code> predictions.</p>
+</div>
+
+
+                </section>
+                <section id="persistence_baseline">
+                            <input id="persistence_baseline-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">persistence_baseline</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">df</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="persistence_baseline-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#persistence_baseline"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="persistence_baseline-35"><a href="#persistence_baseline-35"><span class="linenos">35</span></a><span class="k">def</span><span class="w"> </span><span class="nf">persistence_baseline</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+</span><span id="persistence_baseline-36"><a href="#persistence_baseline-36"><span class="linenos">36</span></a><span class="w">    </span><span class="sd">"""Baseline B: predict that the room stays as it is now (``occupied`` column)."""</span>
+</span><span id="persistence_baseline-37"><a href="#persistence_baseline-37"><span class="linenos">37</span></a>    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="s2">"occupied"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Baseline B: predict that the room stays as it is now (<code>occupied</code> column).</p>
+</div>
+
+
+                </section>
+                <section id="predict_hour_of_week">
+                            <input id="predict_hour_of_week-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">predict_hour_of_week</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">df</span>, </span><span class="param"><span class="n">table</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="predict_hour_of_week-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#predict_hour_of_week"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="predict_hour_of_week-52"><a href="#predict_hour_of_week-52"><span class="linenos">52</span></a><span class="k">def</span><span class="w"> </span><span class="nf">predict_hour_of_week</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+</span><span id="predict_hour_of_week-53"><a href="#predict_hour_of_week-53"><span class="linenos">53</span></a><span class="w">    </span><span class="sd">"""Apply the :func:`hour_of_week_table` rule; hours never seen in training predict 0."""</span>
+</span><span id="predict_hour_of_week-54"><a href="#predict_hour_of_week-54"><span class="linenos">54</span></a>    <span class="k">return</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dayofweek</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">table</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Apply the <code><a href="#hour_of_week_table">hour_of_week_table()</a></code> rule; hours never seen in training predict 0.</p>
+</div>
+
+
+                </section>
+                <section id="scores">
+                            <input id="scores-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">scores</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">y</span>, </span><span class="param"><span class="n">p</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="scores-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#scores"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="scores-12"><a href="#scores-12"><span class="linenos">12</span></a><span class="k">def</span><span class="w"> </span><span class="nf">scores</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+</span><span id="scores-13"><a href="#scores-13"><span class="linenos">13</span></a><span class="w">    </span><span class="sd">"""Precision, recall, F1 and accuracy for binary labels.</span>
+</span><span id="scores-14"><a href="#scores-14"><span class="linenos">14</span></a>
+</span><span id="scores-15"><a href="#scores-15"><span class="linenos">15</span></a><span class="sd">    Parameters</span>
+</span><span id="scores-16"><a href="#scores-16"><span class="linenos">16</span></a><span class="sd">    ----------</span>
+</span><span id="scores-17"><a href="#scores-17"><span class="linenos">17</span></a><span class="sd">    y, p : array-like of int</span>
+</span><span id="scores-18"><a href="#scores-18"><span class="linenos">18</span></a><span class="sd">        True and predicted labels (0/1). Undefined ratios are scored as 0.</span>
+</span><span id="scores-19"><a href="#scores-19"><span class="linenos">19</span></a>
+</span><span id="scores-20"><a href="#scores-20"><span class="linenos">20</span></a><span class="sd">    Returns</span>
+</span><span id="scores-21"><a href="#scores-21"><span class="linenos">21</span></a><span class="sd">    -------</span>
+</span><span id="scores-22"><a href="#scores-22"><span class="linenos">22</span></a><span class="sd">    dict</span>
+</span><span id="scores-23"><a href="#scores-23"><span class="linenos">23</span></a><span class="sd">        Keys ``P, R, F1, Acc``.</span>
+</span><span id="scores-24"><a href="#scores-24"><span class="linenos">24</span></a><span class="sd">    """</span>
+</span><span id="scores-25"><a href="#scores-25"><span class="linenos">25</span></a>    <span class="n">y</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span><span id="scores-26"><a href="#scores-26"><span class="linenos">26</span></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">P</span><span class="o">=</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">R</span><span class="o">=</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+</span><span id="scores-27"><a href="#scores-27"><span class="linenos">27</span></a>                <span class="n">F1</span><span class="o">=</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">Acc</span><span class="o">=</span><span class="nb">float</span><span class="p">((</span><span class="n">y</span> <span class="o">==</span> <span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Precision, recall, F1 and accuracy for binary labels.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>y, p</strong> (array-like of int):
+True and predicted labels (0/1). Undefined ratios are scored as 0.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>dict</strong>: Keys <code>P, R, F1, Acc</code>.</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="tune_random_forest">
+                            <input id="tune_random_forest-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">tune_random_forest</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">train</span>, </span><span class="param"><span class="n">val</span>, </span><span class="param"><span class="n">features</span>, </span><span class="param"><span class="n">grid</span><span class="o">=</span><span class="kc">None</span>, </span><span class="param"><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="tune_random_forest-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#tune_random_forest"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="tune_random_forest-57"><a href="#tune_random_forest-57"><span class="linenos">57</span></a><span class="k">def</span><span class="w"> </span><span class="nf">tune_random_forest</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+</span><span id="tune_random_forest-58"><a href="#tune_random_forest-58"><span class="linenos">58</span></a><span class="w">    </span><span class="sd">"""Try Random Forest settings, scoring on the validation set only.</span>
+</span><span id="tune_random_forest-59"><a href="#tune_random_forest-59"><span class="linenos">59</span></a>
+</span><span id="tune_random_forest-60"><a href="#tune_random_forest-60"><span class="linenos">60</span></a><span class="sd">    Parameters</span>
+</span><span id="tune_random_forest-61"><a href="#tune_random_forest-61"><span class="linenos">61</span></a><span class="sd">    ----------</span>
+</span><span id="tune_random_forest-62"><a href="#tune_random_forest-62"><span class="linenos">62</span></a><span class="sd">    train, val : pandas.DataFrame</span>
+</span><span id="tune_random_forest-63"><a href="#tune_random_forest-63"><span class="linenos">63</span></a><span class="sd">        With a ``target`` column and every column in ``features``.</span>
+</span><span id="tune_random_forest-64"><a href="#tune_random_forest-64"><span class="linenos">64</span></a><span class="sd">    features : list of str</span>
+</span><span id="tune_random_forest-65"><a href="#tune_random_forest-65"><span class="linenos">65</span></a><span class="sd">    grid : iterable of (n_estimators, max_depth, min_samples_leaf), optional</span>
+</span><span id="tune_random_forest-66"><a href="#tune_random_forest-66"><span class="linenos">66</span></a><span class="sd">        Default is the 12 settings used in the project.</span>
+</span><span id="tune_random_forest-67"><a href="#tune_random_forest-67"><span class="linenos">67</span></a><span class="sd">    random_state : int</span>
+</span><span id="tune_random_forest-68"><a href="#tune_random_forest-68"><span class="linenos">68</span></a><span class="sd">        Seed, so results repeat.</span>
+</span><span id="tune_random_forest-69"><a href="#tune_random_forest-69"><span class="linenos">69</span></a>
+</span><span id="tune_random_forest-70"><a href="#tune_random_forest-70"><span class="linenos">70</span></a><span class="sd">    Returns</span>
+</span><span id="tune_random_forest-71"><a href="#tune_random_forest-71"><span class="linenos">71</span></a><span class="sd">    -------</span>
+</span><span id="tune_random_forest-72"><a href="#tune_random_forest-72"><span class="linenos">72</span></a><span class="sd">    pandas.DataFrame</span>
+</span><span id="tune_random_forest-73"><a href="#tune_random_forest-73"><span class="linenos">73</span></a><span class="sd">        One row per setting with ``val_F1``, ``train_F1`` and ``fit_s``, best first.</span>
+</span><span id="tune_random_forest-74"><a href="#tune_random_forest-74"><span class="linenos">74</span></a><span class="sd">    """</span>
+</span><span id="tune_random_forest-75"><a href="#tune_random_forest-75"><span class="linenos">75</span></a>    <span class="k">if</span> <span class="n">grid</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="tune_random_forest-76"><a href="#tune_random_forest-76"><span class="linenos">76</span></a>        <span class="n">grid</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+</span><span id="tune_random_forest-77"><a href="#tune_random_forest-77"><span class="linenos">77</span></a>    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="tune_random_forest-78"><a href="#tune_random_forest-78"><span class="linenos">78</span></a>    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">md</span><span class="p">,</span> <span class="n">leaf</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+</span><span id="tune_random_forest-79"><a href="#tune_random_forest-79"><span class="linenos">79</span></a>        <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span><span id="tune_random_forest-80"><a href="#tune_random_forest-80"><span class="linenos">80</span></a>        <span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">md</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="n">leaf</span><span class="p">,</span>
+</span><span id="tune_random_forest-81"><a href="#tune_random_forest-81"><span class="linenos">81</span></a>                                    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="s2">"target"</span><span class="p">])</span>
+</span><span id="tune_random_forest-82"><a href="#tune_random_forest-82"><span class="linenos">82</span></a>        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">md</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="n">leaf</span><span class="p">,</span>
+</span><span id="tune_random_forest-83"><a href="#tune_random_forest-83"><span class="linenos">83</span></a>                         <span class="n">val_F1</span><span class="o">=</span><span class="n">f1_score</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="s2">"target"</span><span class="p">],</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">features</span><span class="p">])),</span>
+</span><span id="tune_random_forest-84"><a href="#tune_random_forest-84"><span class="linenos">84</span></a>                         <span class="n">train_F1</span><span class="o">=</span><span class="n">f1_score</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s2">"target"</span><span class="p">],</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">])),</span>
+</span><span id="tune_random_forest-85"><a href="#tune_random_forest-85"><span class="linenos">85</span></a>                         <span class="n">fit_s</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
+</span><span id="tune_random_forest-86"><a href="#tune_random_forest-86"><span class="linenos">86</span></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"val_F1"</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Try Random Forest settings, scoring on the validation set only.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>train, val</strong> (pandas.DataFrame):
+With a <code>target</code> column and every column in <code>features</code>.</li>
+<li><p><strong>features</strong> (list of str):</p></li>
+<li><p><strong>grid</strong> (iterable of (n_estimators, max_depth, min_samples_leaf), optional):
+Default is the 12 settings used in the project.</p></li>
+<li><strong>random_state</strong> (int):
+Seed, so results repeat.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>pandas.DataFrame</strong>: One row per setting with <code>val_F1</code>, <code>train_F1</code> and <code>fit_s</code>, best first.</li>
+</ul>
+</div>
+
+
+                </section>
+                <section id="feature_group_sensitivity">
+                            <input id="feature_group_sensitivity-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">feature_group_sensitivity</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">train</span>, </span><span class="param"><span class="n">val</span>, </span><span class="param"><span class="n">features</span>, </span><span class="param"><span class="n">groups</span>, </span><span class="param"><span class="n">params</span>, </span><span class="param"><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="feature_group_sensitivity-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#feature_group_sensitivity"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="feature_group_sensitivity-89"><a href="#feature_group_sensitivity-89"><span class="linenos"> 89</span></a><span class="k">def</span><span class="w"> </span><span class="nf">feature_group_sensitivity</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+</span><span id="feature_group_sensitivity-90"><a href="#feature_group_sensitivity-90"><span class="linenos"> 90</span></a><span class="w">    </span><span class="sd">"""Retrain with one group of features removed at a time, scored on validation.</span>
+</span><span id="feature_group_sensitivity-91"><a href="#feature_group_sensitivity-91"><span class="linenos"> 91</span></a>
+</span><span id="feature_group_sensitivity-92"><a href="#feature_group_sensitivity-92"><span class="linenos"> 92</span></a><span class="sd">    Parameters</span>
+</span><span id="feature_group_sensitivity-93"><a href="#feature_group_sensitivity-93"><span class="linenos"> 93</span></a><span class="sd">    ----------</span>
+</span><span id="feature_group_sensitivity-94"><a href="#feature_group_sensitivity-94"><span class="linenos"> 94</span></a><span class="sd">    groups : dict</span>
+</span><span id="feature_group_sensitivity-95"><a href="#feature_group_sensitivity-95"><span class="linenos"> 95</span></a><span class="sd">        ``{group name: [columns]}``.</span>
+</span><span id="feature_group_sensitivity-96"><a href="#feature_group_sensitivity-96"><span class="linenos"> 96</span></a><span class="sd">    params : dict</span>
+</span><span id="feature_group_sensitivity-97"><a href="#feature_group_sensitivity-97"><span class="linenos"> 97</span></a><span class="sd">        Random Forest settings (``n_estimators, max_depth, min_samples_leaf``).</span>
+</span><span id="feature_group_sensitivity-98"><a href="#feature_group_sensitivity-98"><span class="linenos"> 98</span></a>
+</span><span id="feature_group_sensitivity-99"><a href="#feature_group_sensitivity-99"><span class="linenos"> 99</span></a><span class="sd">    Returns</span>
+</span><span id="feature_group_sensitivity-100"><a href="#feature_group_sensitivity-100"><span class="linenos">100</span></a><span class="sd">    -------</span>
+</span><span id="feature_group_sensitivity-101"><a href="#feature_group_sensitivity-101"><span class="linenos">101</span></a><span class="sd">    pandas.DataFrame</span>
+</span><span id="feature_group_sensitivity-102"><a href="#feature_group_sensitivity-102"><span class="linenos">102</span></a><span class="sd">        ``removed, val_F1, change`` (vs all features) and ``fit_s``.</span>
+</span><span id="feature_group_sensitivity-103"><a href="#feature_group_sensitivity-103"><span class="linenos">103</span></a><span class="sd">    """</span>
+</span><span id="feature_group_sensitivity-104"><a href="#feature_group_sensitivity-104"><span class="linenos">104</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit_eval</span><span class="p">(</span><span class="n">feats</span><span class="p">):</span>
+</span><span id="feature_group_sensitivity-105"><a href="#feature_group_sensitivity-105"><span class="linenos">105</span></a>        <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span><span id="feature_group_sensitivity-106"><a href="#feature_group_sensitivity-106"><span class="linenos">106</span></a>        <span class="n">m</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">feats</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="s2">"target"</span><span class="p">])</span>
+</span><span id="feature_group_sensitivity-107"><a href="#feature_group_sensitivity-107"><span class="linenos">107</span></a>        <span class="k">return</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="s2">"target"</span><span class="p">],</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="n">feats</span><span class="p">])),</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span>
+</span><span id="feature_group_sensitivity-108"><a href="#feature_group_sensitivity-108"><span class="linenos">108</span></a>
+</span><span id="feature_group_sensitivity-109"><a href="#feature_group_sensitivity-109"><span class="linenos">109</span></a>    <span class="n">full_f1</span><span class="p">,</span> <span class="n">full_t</span> <span class="o">=</span> <span class="n">fit_eval</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</span><span id="feature_group_sensitivity-110"><a href="#feature_group_sensitivity-110"><span class="linenos">110</span></a>    <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">removed</span><span class="o">=</span><span class="s2">"(none: all features)"</span><span class="p">,</span> <span class="n">val_F1</span><span class="o">=</span><span class="n">full_f1</span><span class="p">,</span> <span class="n">change</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">fit_s</span><span class="o">=</span><span class="n">full_t</span><span class="p">)]</span>
+</span><span id="feature_group_sensitivity-111"><a href="#feature_group_sensitivity-111"><span class="linenos">111</span></a>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">cols</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="feature_group_sensitivity-112"><a href="#feature_group_sensitivity-112"><span class="linenos">112</span></a>        <span class="n">f</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">fit_eval</span><span class="p">([</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">features</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">])</span>
+</span><span id="feature_group_sensitivity-113"><a href="#feature_group_sensitivity-113"><span class="linenos">113</span></a>        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">removed</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">val_F1</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">change</span><span class="o">=</span><span class="n">f</span> <span class="o">-</span> <span class="n">full_f1</span><span class="p">,</span> <span class="n">fit_s</span><span class="o">=</span><span class="n">s</span><span class="p">))</span>
+</span><span id="feature_group_sensitivity-114"><a href="#feature_group_sensitivity-114"><span class="linenos">114</span></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Retrain with one group of features removed at a time, scored on validation.</p>
+
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>groups</strong> (dict):
+<code>{group name: [columns]}</code>.</li>
+<li><strong>params</strong> (dict):
+Random Forest settings (<code>n_estimators, max_depth, min_samples_leaf</code>).</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>pandas.DataFrame</strong>: <code>removed, val_F1, change</code> (vs all features) and <code>fit_s</code>.</li>
+</ul>
+</div>
+
+
+                </section>
+    </main>
+<script>
+    function escapeHTML(html) {
+        return document.createElement('div').appendChild(document.createTextNode(html)).parentNode.innerHTML;
+    }
+
+    const originalContent = document.querySelector("main.pdoc");
+    let currentContent = originalContent;
+
+    function setContent(innerHTML) {
+        let elem;
+        if (innerHTML) {
+            elem = document.createElement("main");
+            elem.classList.add("pdoc");
+            elem.innerHTML = innerHTML;
+        } else {
+            elem = originalContent;
+        }
+        if (currentContent !== elem) {
+            currentContent.replaceWith(elem);
+            currentContent = elem;
+        }
+    }
+
+    function getSearchTerm() {
+        return (new URL(window.location)).searchParams.get("search");
+    }
+
+    const searchBox = document.querySelector(".pdoc input[type=search]");
+    searchBox.addEventListener("input", function () {
+        let url = new URL(window.location);
+        if (searchBox.value.trim()) {
+            url.hash = "";
+            url.searchParams.set("search", searchBox.value);
+        } else {
+            url.searchParams.delete("search");
+        }
+        history.replaceState("", "", url.toString());
+        onInput();
+    });
+    window.addEventListener("popstate", onInput);
+
+
+    let search, searchErr;
+
+    async function initialize() {
+        try {
+            search = await new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+                script.type = "text/javascript";
+                script.async = true;
+                script.onload = () => resolve(window.pdocSearch);
+                script.onerror = (e) => reject(e);
+                script.src = "search.js";
+                document.getElementsByTagName("head")[0].appendChild(script);
+            });
+        } catch (e) {
+            console.error("Cannot fetch pdoc search index");
+            searchErr = "Cannot fetch search index.";
+        }
+        onInput();
+
+        document.querySelector("nav.pdoc").addEventListener("click", e => {
+            if (e.target.hash) {
+                searchBox.value = "";
+                searchBox.dispatchEvent(new Event("input"));
+            }
+        });
+    }
+
+    function onInput() {
+        setContent((() => {
+            const term = getSearchTerm();
+            if (!term) {
+                return null
+            }
+            if (searchErr) {
+                return `<h3>Error: ${searchErr}</h3>`
+            }
+            if (!search) {
+                return "<h3>Searching...</h3>"
+            }
+
+            window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+
+            const results = search(term);
+
+            let html;
+            if (results.length === 0) {
+                html = `No search results for '${escapeHTML(term)}'.`
+            } else {
+                html = `<h4>${results.length} search result${results.length > 1 ? "s" : ""} for '${escapeHTML(term)}'.</h4>`;
+            }
+            for (let result of results.slice(0, 10)) {
+                let doc = result.doc;
+                let url = `${doc.modulename.replaceAll(".", "/")}.html`;
+                if (doc.qualname) {
+                    url += `#${doc.qualname}`;
+                }
+
+                let heading;
+                switch (result.doc.kind) {
+                    case "function":
+                        if (doc.fullname.endsWith(".__init__")) {
+                            heading = `<span class="name">${doc.fullname.replace(/\.__init__$/, "")}</span>${doc.signature}`;
+                        } else {
+                            heading = `<span class="def">${doc.funcdef}</span> <span class="name">${doc.fullname}</span>${doc.signature}`;
+                        }
+                        break;
+                    case "class":
+                        heading = `<span class="def">class</span> <span class="name">${doc.fullname}</span>`;
+                        if (doc.bases)
+                            heading += `<wbr>(<span class="base">${doc.bases}</span>)`;
+                        heading += `:`;
+                        break;
+                    case "variable":
+                        heading = `<span class="name">${doc.fullname}</span>`;
+                        if (doc.annotation)
+                            heading += `<span class="annotation">${doc.annotation}</span>`;
+                        if (doc.default_value)
+                            heading += `<span class="default_value"> = ${doc.default_value}</span>`;
+                        break;
+                    default:
+                        heading = `<span class="name">${doc.fullname}</span>`;
+                        break;
+                }
+                html += `
+                        <section class="search-result">
+                        <a href="${url}" class="attr ${doc.kind}">${heading}</a>
+                        <div class="docstring">${doc.doc}</div>
+                        </section>
+                    `;
+
+            }
+            return html;
+        })());
+    }
+
+    if (getSearchTerm()) {
+        initialize();
+        searchBox.value = getSearchTerm();
+        onInput();
+    } else {
+        searchBox.addEventListener("focus", initialize, {once: true});
+    }
+
+    searchBox.addEventListener("keydown", e => {
+        if (["ArrowDown", "ArrowUp", "Enter"].includes(e.key)) {
+            let focused = currentContent.querySelector(".search-result.focused");
+            if (!focused) {
+                currentContent.querySelector(".search-result").classList.add("focused");
+            } else if (
+                e.key === "ArrowDown"
+                && focused.nextElementSibling
+                && focused.nextElementSibling.classList.contains("search-result")
+            ) {
+                focused.classList.remove("focused");
+                focused.nextElementSibling.classList.add("focused");
+                focused.nextElementSibling.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "nearest"
+                });
+            } else if (
+                e.key === "ArrowUp"
+                && focused.previousElementSibling
+                && focused.previousElementSibling.classList.contains("search-result")
+            ) {
+                focused.classList.remove("focused");
+                focused.previousElementSibling.classList.add("focused");
+                focused.previousElementSibling.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "nearest"
+                });
+            } else if (
+                e.key === "Enter"
+            ) {
+                focused.querySelector("a").click();
+            }
+        }
+    });
+</script></body>
+</html>
