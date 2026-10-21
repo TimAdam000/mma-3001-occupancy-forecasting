@@ -1,3 +1,10 @@
+"""Cell 4: tune the Random Forest on the validation set, then score all models once on the test set.
+
+Needs (from Cell 3): train, val, test, FEATURES.
+Creates: BEST (chosen settings), rf (Random Forest), lr (logistic regression), RANDOM_STATE.
+Prints: tuning table, test scores for all models, train/validation/test F1, confusion matrix, and a permutation importance chart.
+"""
+
 import matplotlib.pyplot as plt
 import time, itertools
 from sklearn.ensemble import RandomForestClassifier
