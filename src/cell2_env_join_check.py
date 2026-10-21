@@ -1,3 +1,10 @@
+"""Cell 2: parse the environmental sensor file and check whether it can be joined to the occupancy rooms.
+
+Needs (from Cell 1): occ, env_map, DATA_DIR, ENV_FILE, BIN.
+Creates: env, environmental readings per sensor per 15-minute bin, with the room if known.
+Prints: each sensor's room and date range, the rooms with both kinds of data (none), and duplicate IDs in the lookup.
+"""
+
 env = pd.read_csv(os.path.join(DATA_DIR, ENV_FILE), usecols=['sensorid', 'jsondata'], dtype={'sensorid': str})
 
 def parse(js):
