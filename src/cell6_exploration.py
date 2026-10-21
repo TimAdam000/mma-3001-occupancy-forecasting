@@ -1,3 +1,9 @@
+"""Cell 6: exploratory plots of the binned occupancy data.
+
+Needs (from Cell 1): occ.
+Shows: data coverage per room, occupied rate by hour and weekday, daily profile per room, monthly pattern, headcount distribution, and the status mix per room.
+"""
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_theme(style='whitegrid')
