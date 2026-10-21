@@ -1,3 +1,10 @@
+"""Cell 5: error analysis on the test set and feature-group removal on the validation set.
+
+Needs (from Cells 3 and 4): train, val, test, FEATURES, BEST, rf, Xte, ytr, yva.
+Creates: by_room (error by room) and GROUPS (the feature groups removed one at a time).
+Prints: results by room, error rate by hour and weekday charts, and the feature-group removal table.
+"""
+
 # ---- Error analysis on the TEST set
 test = test.copy(); test['pred'] = rf.predict(Xte); test['wrong'] = (test['pred'] != test['target']).astype(int)
 
