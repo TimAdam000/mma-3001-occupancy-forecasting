@@ -1,3 +1,10 @@
+"""Cell 7: sensitivity to forecast horizon and label definition, plus runtime and model size.
+
+Needs (from Cells 1 to 4): occ, train, val, test, FEATURES, BEST, RANDOM_STATE.
+Defines: build_dataset(), which rebuilds features and the split for any horizon and label definition.
+Prints: a check that build_dataset reproduces Cell 3, then horizon, label and runtime tables.
+"""
+
 import time, pickle
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
