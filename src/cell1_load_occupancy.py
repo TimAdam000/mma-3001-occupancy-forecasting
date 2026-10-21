@@ -1,3 +1,10 @@
+"""Cell 1: load the occupancy event log and aggregate it to 15-minute bins per room.
+
+Needs: the three data files in DATA_DIR (/content).
+Creates: occ, one row per room per 15-minute bin (status, headcount, occupied flag, local time).
+Prints: table shape, rows and occupied rate per room, first and last bin per room.
+"""
+
 import os, json
 import numpy as np, pandas as pd
 
