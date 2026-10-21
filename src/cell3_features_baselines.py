@@ -1,3 +1,10 @@
+"""Cell 3: build the target and features, split chronologically 60/20/20, and score three baselines.
+
+Needs (from Cell 1): occ, BIN.
+Creates: train, val, test, FEATURES, HORIZON_BINS (4 bins = 1 hour ahead).
+Prints: size and dates of each block, and validation scores for majority class, persistence and the hour-of-week rule.
+"""
+
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
 HORIZON_BINS = 4                      # 4 x 15 min = predict 1 hour ahead
